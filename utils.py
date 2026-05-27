@@ -1,26 +1,16 @@
 import os
 import re
-import time
+import shutil
 import datetime
 from collections import defaultdict
 from typing import List, Dict, Optional, Tuple
 
 import pytz
-import shutil
-import urllib
-import urllib.error
-import urllib.parse
-import urllib.request
-
-import feedparser
-from easydict import EasyDict
+import arxiv
 
 
 # 需要随生成产物一起备份/恢复的文件,任一步骤失败时整体回滚
 BACKUP_FILES = ["README.md", ".github/ISSUE_TEMPLATE.md", "INDEX.md"]
-
-# arXiv 建议带上可识别的描述性 User-Agent,有助于降低被限流概率
-USER_AGENT = "DailyArxiv/1.0 (https://github.com/guoyue0412/DailyArxiv)"
 
 # 默认领域过滤集合:聚焦机器人 / 机器学习相关方向,
 # 既能保留 VLA / WAM / WM 论文,又能滤掉缩写带来的跨领域噪声(如天文 VLA、机械臂 WAM)。
@@ -59,40 +49,53 @@ def build_search_query(terms: List[str]) -> str:
     return "(" + " OR ".join(clauses) + ")"
 
 
+# 复用单个 Client:共享连接池、单连接顺序请求,并按 delay_seconds 自动节流。
+# arxiv 官方 ToU 要求"每 3 秒至多一次请求";这里取更保守的 5 秒以降低被限流概率。
+# Client 对 HTTP 错误(含 429)、网络错误与空页会自动重试 num_retries 次后才抛异常。
+_CLIENT = arxiv.Client(page_size=100, delay_seconds=5.0, num_retries=5)
+
+_SORT_CRITERION = {
+    "lastUpdatedDate": arxiv.SortCriterion.LastUpdatedDate,
+    "submittedDate": arxiv.SortCriterion.SubmittedDate,
+    "relevance": arxiv.SortCriterion.Relevance,
+}
+_SORT_ORDER = {
+    "descending": arxiv.SortOrder.Descending,
+    "ascending": arxiv.SortOrder.Ascending,
+}
+
+
+def _result_to_paper(result: "arxiv.Result") -> Dict[str, str]:
+    """把 arxiv.Result 映射为下游使用的统一 paper 字典。"""
+    return {
+        "Title": remove_duplicated_spaces(result.title.replace("\n", " ")),
+        "Abstract": remove_duplicated_spaces(result.summary.replace("\n", " ")),
+        "Authors": [remove_duplicated_spaces(a.name.replace("\n", " ")) for a in result.authors],
+        "Link": result.entry_id,  # 形如 http://arxiv.org/abs/2511.16449v4
+        "Tags": list(result.categories),
+        "Comment": remove_duplicated_spaces((result.comment or "").replace("\n", " ")),
+        "Date": result.updated.strftime("%Y-%m-%dT%H:%M:%SZ"),
+    }
+
+
 def request_papers(
     terms: List[str],
     max_results: int,
     sort_by: str = "lastUpdatedDate",
     sort_order: str = "descending",
 ) -> List[Dict[str, str]]:
-    """调用 arXiv API 抓取一个方向的论文。
+    """用官方 arxiv 客户端抓取一个方向的论文。
 
-    使用 urlencode 安全编码查询参数,避免原实现手工拼接 URL 带来的转义隐患。
+    限流、重试、分页均由复用的 _CLIENT 负责,符合 arxiv 的 API 使用条款,
+    避免手写 urllib 抓取因请求过密触发 429。
     """
-    params = {
-        "search_query": build_search_query(terms),
-        "max_results": max_results,
-        "sortBy": sort_by,
-        "sortOrder": sort_order,
-    }
-    url = "http://export.arxiv.org/api/query?" + urllib.parse.urlencode(params)
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    response = urllib.request.urlopen(request).read().decode("utf-8")
-    feed = feedparser.parse(response)
-
-    papers = []
-    for entry in feed.entries:
-        entry = EasyDict(entry)
-        paper = EasyDict()
-        paper.Title = remove_duplicated_spaces(entry.title.replace("\n", " "))
-        paper.Abstract = remove_duplicated_spaces(entry.summary.replace("\n", " "))
-        paper.Authors = [remove_duplicated_spaces(a["name"].replace("\n", " ")) for a in entry.authors]
-        paper.Link = remove_duplicated_spaces(entry.link.replace("\n", " "))
-        paper.Tags = [remove_duplicated_spaces(t["term"].replace("\n", " ")) for t in entry.tags]
-        paper.Comment = remove_duplicated_spaces(entry.get("arxiv_comment", "").replace("\n", " "))
-        paper.Date = entry.updated
-        papers.append(paper)
-    return papers
+    search = arxiv.Search(
+        query=build_search_query(terms),
+        max_results=max_results,
+        sort_by=_SORT_CRITERION[sort_by],
+        sort_order=_SORT_ORDER[sort_order],
+    )
+    return [_result_to_paper(result) for result in _CLIENT.results(search)]
 
 
 def request_papers_with_retries(
@@ -100,29 +103,18 @@ def request_papers_with_retries(
     max_results: int,
     sort_by: str = "lastUpdatedDate",
     sort_order: str = "descending",
-    retries: int = 6,
-    empty_wait: int = 60 * 30,
-    error_wait: int = 30,
 ) -> Optional[List[Dict[str, str]]]:
-    """带重试的抓取,处理两类瞬时故障:
+    """对 request_papers 的安全封装(系统边界容错)。
 
-    - HTTP/网络错误(如 429 限流、503 不可用):线性退避后重试,避免直接崩溃。
-    - 空列表(arXiv API 偶发返回空):等待较长时间后重试。
-    重试耗尽返回 None,由调用方据此回滚已备份的文件。
+    arxiv.Client 已在内部完成节流与重试;此处仅在最终仍失败或结果为空时返回 None,
+    由调用方据此回滚已备份的文件,避免整个流程因外部 API 故障而崩溃。
     """
-    for attempt in range(retries):
-        try:
-            papers = request_papers(terms, max_results, sort_by, sort_order)
-        except (urllib.error.HTTPError, urllib.error.URLError) as exc:
-            wait = error_wait * (attempt + 1)
-            print("arXiv request failed ({0}), retrying in {1}s...".format(exc, wait))
-            time.sleep(wait)
-            continue
-        if len(papers) > 0:
-            return papers
-        print("Unexpected empty list, retrying...")
-        time.sleep(empty_wait)
-    return None
+    try:
+        papers = request_papers(terms, max_results, sort_by, sort_order)
+    except Exception as exc:  # 外部 API 边界:任何抓取失败都降级为 None
+        print("arXiv request failed after retries: {0}".format(exc))
+        return None
+    return papers if papers else None
 
 
 # ---------------------------------------------------------------------------

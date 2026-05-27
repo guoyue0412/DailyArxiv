@@ -4,7 +4,6 @@
     python -m unittest test_utils -v
 """
 import unittest
-import urllib.error
 
 import utils
 
@@ -144,37 +143,31 @@ class TestGenerateIndexMarkdown(unittest.TestCase):
         self.assertIn("(+5 more)", md)  # 25 篇,只显示 20 条
 
 
-class TestRetries(unittest.TestCase):
+class TestRequestWrapper(unittest.TestCase):
+    """request_papers_with_retries 的容错封装(限流/重试已由 arxiv.Client 内部处理)。"""
+
     def setUp(self):
         self._orig_request = utils.request_papers
-        self._orig_sleep = utils.time.sleep
-        utils.time.sleep = lambda s: None  # 跳过退避等待
 
     def tearDown(self):
         utils.request_papers = self._orig_request
-        utils.time.sleep = self._orig_sleep
 
-    def test_retry_after_http_error(self):
-        calls = {"n": 0}
-
-        def flaky(*args, **kwargs):
-            calls["n"] += 1
-            if calls["n"] == 1:
-                raise urllib.error.HTTPError("u", 503, "Service Unavailable", {}, None)
-            return [make_paper("ok", "x", "l", ["cs.RO"], "d")]
-
-        utils.request_papers = flaky
-        result = utils.request_papers_with_retries(["VLA"], 10, retries=3)
+    def test_returns_papers_on_success(self):
+        utils.request_papers = lambda *a, **k: [make_paper("ok", "x", "l", ["cs.RO"], "d")]
+        result = utils.request_papers_with_retries(["VLA"], 10)
         self.assertIsNotNone(result)
-        self.assertEqual(calls["n"], 2)  # 首次 503,第二次成功
+        self.assertEqual(result[0]["Title"], "ok")
 
-    def test_returns_none_when_exhausted(self):
-        def always_429(*args, **kwargs):
-            raise urllib.error.HTTPError("u", 429, "Too Many Requests", {}, None)
+    def test_none_on_exception(self):
+        def boom(*args, **kwargs):
+            raise utils.arxiv.HTTPError("u", 0, 429)
 
-        utils.request_papers = always_429
-        result = utils.request_papers_with_retries(["VLA"], 10, retries=2)
-        self.assertIsNone(result)  # 耗尽重试后返回 None,交由调用方回滚
+        utils.request_papers = boom
+        self.assertIsNone(utils.request_papers_with_retries(["VLA"], 10))
+
+    def test_none_on_empty(self):
+        utils.request_papers = lambda *a, **k: []
+        self.assertIsNone(utils.request_papers_with_retries(["VLA"], 10))
 
 
 if __name__ == "__main__":
