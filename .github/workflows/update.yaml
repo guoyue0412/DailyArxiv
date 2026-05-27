@@ -2,9 +2,7 @@
 name: Update
 
 on:
-  label:
-    types:
-      - created # for test
+  workflow_dispatch: # 允许在 Actions 页面手动触发(便于 arXiv 限流恢复后重跑)
   schedule:
       - cron: '30 16 * * 0-4' # 00:30 Beijing time every Monday to Friday
   push:
