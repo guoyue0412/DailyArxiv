@@ -10,7 +10,7 @@ import arxiv
 
 
 # 需要随生成产物一起备份/恢复的文件,任一步骤失败时整体回滚
-BACKUP_FILES = ["README.md", ".github/ISSUE_TEMPLATE.md", "INDEX.md"]
+BACKUP_FILES = ["README.md", ".github/ISSUE_TEMPLATE.md", "INDEX.md", "papers.json"]
 
 # 默认领域过滤集合:聚焦机器人 / 机器学习相关方向,
 # 既能保留 VLA / WAM / WM 论文,又能滤掉缩写带来的跨领域噪声(如天文 VLA、机械臂 WAM)。

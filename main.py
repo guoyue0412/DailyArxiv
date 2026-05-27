@@ -1,4 +1,5 @@
 import sys
+import json
 import time
 from collections import OrderedDict
 from datetime import datetime
@@ -147,6 +148,21 @@ def main():
     with open("INDEX.md", "w") as f_idx:
         f_idx.write(generate_index_markdown(term_index, all_papers, current_date))
         f_idx.write("\n")
+
+    # ---- papers.json(结构化数据,供本地 Obsidian 脚本消费,避免本地再次请求 arXiv)----
+    payload = {
+        "date": current_date,
+        "directions": [
+            {
+                "label": topic["label"],
+                "abbrev": topic["abbrev"],
+                "papers": topic_to_papers[topic["label"]],
+            }
+            for topic in SEARCH_TOPICS
+        ],
+    }
+    with open("papers.json", "w") as f_json:
+        json.dump(payload, f_json, ensure_ascii=False, indent=2)
 
     remove_backups()
 

@@ -41,7 +41,7 @@ jobs:
         push-branch: 'main'
         commit-message: '✏️ Update papers automatically.'
         force-add: 'true'
-        files: README.md INDEX.md .github/ISSUE_TEMPLATE.md
+        files: README.md INDEX.md papers.json .github/ISSUE_TEMPLATE.md
         name: guoyue0412
         email: 1601954018@qq.com
 
