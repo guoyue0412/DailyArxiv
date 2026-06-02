@@ -1,5 +1,5 @@
 ---
-title: Latest 15 Papers - June 01, 2026
+title: Latest 15 Papers - June 02, 2026
 labels: documentation
 ---
 **Please check the [Github](https://github.com/guoyue0412/DailyArxiv) page for a better reading experience and more papers.**
@@ -7,21 +7,21 @@ labels: documentation
 ## Vision-Language-Action (VLA)
 | **Title** | **Date** | **Directions** | **Comment** |
 | --- | --- | --- | --- |
-| **[TIC-VLA: A Think-in-Control Vision-Language-Action Model for Robot Navigation in Dynamic Environments](http://arxiv.org/abs/2602.02459v2)** | 2026-05-29 | VLA | <details><summary>Inter...</summary><p>International Conference on Machine Learning (ICML) 2026</p></details> |
-| **[nuReasoning: A Reasoning-Centric Dataset and Benchmark for Long-Tail Autonomous Driving](http://arxiv.org/abs/2605.31572v1)** | 2026-05-29 | VLA |  |
-| **[Notes-to-Self: Scratchpad Augmented VLAs for Memory Dependent Manipulation Tasks](http://arxiv.org/abs/2602.21013v2)** | 2026-05-29 | VLA | <details><summary>To ap...</summary><p>To appear at ICRA 2026</p></details> |
-| **[Mixture of Horizons in Action Chunking](http://arxiv.org/abs/2511.19433v2)** | 2026-05-29 | VLA | <details><summary>Accep...</summary><p>Accepted at ICML 2026</p></details> |
-| **[DeMaVLA: A Vision-Language-Action Foundation Model for Generalizable Deformable Manipulation](http://arxiv.org/abs/2605.31286v1)** | 2026-05-29 | VLA | 14 pages, 2 figures |
-| **[DriveMA: Driving Vision-Language-Action Models with verifiable Meta-Actions](http://arxiv.org/abs/2605.31271v1)** | 2026-05-29 | VLA | <details><summary>arXiv...</summary><p>arXiv admin note: text overlap with arXiv:2605.21273</p></details> |
-| **[HARP-VLA: Human-Robot Aligned Representation Learning for Vision-Language-Action Model](http://arxiv.org/abs/2605.31234v1)** | 2026-05-29 | VLA |  |
-| **[Can Aerial VLA Models Cooperate? Evaluating Closed-Loop Air-Ground Coordination with CARLA-Air](http://arxiv.org/abs/2605.31066v1)** | 2026-05-29 | VLA | <details><summary>Code ...</summary><p>Code at https://github.com/louiszengCN/CarlaAir</p></details> |
-| **[Does Visual Information Play a Decisive Role in Vision-Language-Action Model Driving Behavior?](http://arxiv.org/abs/2605.31041v1)** | 2026-05-29 | VLA |  |
-| **[RDGen: Demonstration Generation for High-Quality Robot Learning via Reinforcement Learning](http://arxiv.org/abs/2605.30957v1)** | 2026-05-29 | VLA | <details><summary>13 pa...</summary><p>13 pages, 4 figures, 3 tables</p></details> |
-| **[AnySlot: Goal-Conditioned Vision-Language-Action Policies for Zero-Shot Slot-Level Placement](http://arxiv.org/abs/2604.10432v3)** | 2026-05-29 | VLA |  |
-| **[LangForce: Bayesian Decomposition of Vision Language Action Models via Latent Action Queries](http://arxiv.org/abs/2601.15197v7)** | 2026-05-29 | VLA | ICML 2026 |
-| **[Wall-OSS-0.5 Technical Report](http://arxiv.org/abs/2605.30877v1)** | 2026-05-29 | VLA |  |
-| **[World2Act: Latent Action Post-Training from World Model Dynamics](http://arxiv.org/abs/2603.10422v2)** | 2026-05-29 | VLA, WM | <details><summary>Updat...</summary><p>Updated version. Project page: https://wm2act.github.io/</p></details> |
-| **[Hide-and-Seek in Trajectories: Discovering Failure Signals for VLA Runtime Monitoring](http://arxiv.org/abs/2605.30834v1)** | 2026-05-29 | VLA |  |
+| **[Intercepting the Future: Latent-Space Predictive World Model for Dynamic VLA Manipulation](http://arxiv.org/abs/2606.02486v1)** | 2026-06-01 | VLA, WM | <details><summary>28 pa...</summary><p>28 pages, 7 figures, 16 tables, Su</p></details> |
+| **[Towards Precise Intent-Aligned VLA Aerial Navigation via Expert-Guided GRPO](http://arxiv.org/abs/2606.02313v1)** | 2026-06-01 | VLA |  |
+| **[FATE-VLA:Failue-aware test generation for vision-language-action models](http://arxiv.org/abs/2606.02307v1)** | 2026-06-01 | VLA |  |
+| **[RoboSemanticBench: Diagnosing Semantic Grounding in Action Prediction for VLA Models](http://arxiv.org/abs/2606.02277v1)** | 2026-06-01 | VLA | <details><summary>GitHu...</summary><p>GitHub: https://github.com/ZGC-EmbodyAI/RoboSemanticBench</p></details> |
+| **[Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments](http://arxiv.org/abs/2605.30280v2)** | 2026-06-01 | VLA | 34 pages |
+| **[GuidedVLA: Specifying Task-Relevant Factors via Plug-and-Play Action Attention Specialization](http://arxiv.org/abs/2605.12369v2)** | 2026-06-01 | VLA | <details><summary>Accep...</summary><p>Accepted to RSS 2026. Project page: https://guidedvla.github.io/project_page/</p></details> |
+| **[AttenA+: Rectifying Action Inequality in Robotic Foundation Models](http://arxiv.org/abs/2605.13548v3)** | 2026-06-01 | VLA, WAM |  |
+| **[WALL-WM: Carving World Action Modeling at the Event Joints](http://arxiv.org/abs/2606.01955v1)** | 2026-06-01 | VLA, WAM |  |
+| **[Co-training with Ego-centric Video and Demonstration for Robot Navigation Task](http://arxiv.org/abs/2606.01951v1)** | 2026-06-01 | VLA |  |
+| **[The Lie We Tell: Correcting the Euclidean Fallacy in Vision Language Action Policies via Score Matching on Tangent Space](http://arxiv.org/abs/2606.01847v1)** | 2026-06-01 | VLA | ICML 2026 Accepted |
+| **[MobileEgo Anywhere: Open Infrastructure for long horizon egocentric data on commodity hardware](http://arxiv.org/abs/2605.05945v6)** | 2026-06-01 | VLA |  |
+| **[Wall-OSS-0.5 Technical Report](http://arxiv.org/abs/2605.30877v2)** | 2026-06-01 | VLA |  |
+| **[Simple Recipe Works: Vision-Language-Action Models are Natural Continual Learners with Reinforcement Learning](http://arxiv.org/abs/2603.11653v2)** | 2026-06-01 | VLA | Accepted at RLC 2026 |
+| **[LEGS: Fine-Tuning Teleop-Free VLAs for Humanoid Loco-manipulation in an Embodied Gaussian Splatting World](http://arxiv.org/abs/2606.01458v1)** | 2026-05-31 | VLA | <details><summary>https...</summary><p>https://legsvla.github.io/</p></details> |
+| **[Discrete Diffusion VLA: Bringing Discrete Diffusion to Action Decoding in Vision-Language-Action Policies](http://arxiv.org/abs/2508.20072v4)** | 2026-05-31 | VLA | <details><summary>Accep...</summary><p>Accepted by ICML 2026. 17 pages</p></details> |
 
 ## World Action Model (WAM)
 | **Title** | **Date** | **Directions** | **Comment** |
@@ -45,19 +45,19 @@ labels: documentation
 ## World Model (WM)
 | **Title** | **Date** | **Directions** | **Comment** |
 | --- | --- | --- | --- |
-| **[3D-Belief: Embodied Belief Inference via Generative 3D World Modeling](http://arxiv.org/abs/2605.11367v2)** | 2026-05-29 | WM |  |
-| **[Positional versus Symbolic Attention Heads: Learning Dynamics, RoPE Geometry, and Length Generalization](http://arxiv.org/abs/2605.31558v1)** | 2026-05-29 | WM |  |
-| **[World Action Verifier: Self-Improving World Models via Forward-Inverse Asymmetry](http://arxiv.org/abs/2604.01985v2)** | 2026-05-29 | WM | <details><summary>Proje...</summary><p>Project Website: https://world-action-verifier.github.io</p></details> |
-| **[IDOL: Inverse-Dynamics-Guided Future Prediction for End-to-End Autonomous Driving](http://arxiv.org/abs/2605.31476v1)** | 2026-05-29 | WM | 20 pages, 5 figures |
-| **[Dreaming Across Towns: Semantic Rollout and Town-Adversarial Regularization for Zero-Shot Held-Out-Town Fixed-Route Driving in CARLA](http://arxiv.org/abs/2604.27994v2)** | 2026-05-29 | WM |  |
-| **[PROWL: Prioritized Regret-Driven Optimization for World Model Learning](http://arxiv.org/abs/2605.18803v2)** | 2026-05-29 | WM |  |
-| **[Dreaming Of Others: Latent Teammate Modeling In World Models For Multi-Agent Reinforcement Learning](http://arxiv.org/abs/2605.31361v1)** | 2026-05-29 | WM | <details><summary>5 pag...</summary><p>5 pages, 2 figures. Accepted as a poster at the 2026 World Modeling Workshop. Conceptual workshop paper</p></details> |
-| **[DecMem: Towards Minute-Long Consistent World Generation with Decoupled Memory](http://arxiv.org/abs/2605.31336v1)** | 2026-05-29 | WM | <details><summary>Proje...</summary><p>Project page is available at https://jeffreyyzh.github.io/DecMem-Page</p></details> |
-| **[Causal Forcing++: Scalable Few-Step Autoregressive Diffusion Distillation for Real-Time Interactive Video Generation](http://arxiv.org/abs/2605.15141v2)** | 2026-05-29 | WM |  |
-| **[AR Forcing: Towards Long-Horizon Robot Navigation World Model](http://arxiv.org/abs/2605.31314v1)** | 2026-05-29 | WM |  |
-| **[FEM-Bench: A Structured Scientific Reasoning Benchmark for Evaluating Code-Generating LLMs](http://arxiv.org/abs/2512.20732v2)** | 2026-05-29 | WM | <details><summary>45 pa...</summary><p>45 pages, 5 figures, 9 tables, 7 listings</p></details> |
-| **[Target-Agnostic Calibration under Distribution Shift with Frequency-Aware Gradient Rectification](http://arxiv.org/abs/2508.19830v2)** | 2026-05-29 | WM | <details><summary>25 pa...</summary><p>25 pages, Accepted at ICML 2026</p></details> |
-| **[Light Interaction: Training-Free Inference Acceleration for Interactive Video World Models](http://arxiv.org/abs/2605.31158v1)** | 2026-05-29 | WM | <details><summary>13 pa...</summary><p>13 pages, 6 figures, 3 tables. Project page: https://2843721358l-del.github.io/Light-Interaction-Project/</p></details> |
-| **[Subspace-Decomposed JEPAs: Disentangling Progression and Content in Latent World Models](http://arxiv.org/abs/2605.31111v1)** | 2026-05-29 | WM |  |
-| **[PatchWorld: Gradient-Free Optimization of Executable World Models](http://arxiv.org/abs/2605.30880v1)** | 2026-05-29 | WM | 40 pages |
+| **[RoboDream: Compositional World Models for Scalable Robot Data Synthesis](http://arxiv.org/abs/2606.02577v1)** | 2026-06-01 | WM | <details><summary>Proje...</summary><p>Project page: https://junjieye.com/RoboDream/</p></details> |
+| **[From Zero to Hero: Training-Free Custom Concept Spawning in World Models](http://arxiv.org/abs/2606.02575v1)** | 2026-06-01 | WM |  |
+| **[WorldLens: Full-Spectrum Evaluations of Driving World Models in Real World](http://arxiv.org/abs/2512.10958v2)** | 2026-06-01 | WM | <details><summary>CVPR ...</summary><p>CVPR 2026 Oral Presentation; 80 pages, 37 figures, 29 tables; Project Page at https://worldbench.github.io/worldlens GitHub at https://github.com/worldbench/WorldLens</p></details> |
+| **[Geometry-Aware Implicit Memory for Video World Models](http://arxiv.org/abs/2606.02436v1)** | 2026-06-01 | WM | <details><summary>Proje...</summary><p>Project page: https://gim-world.github.io/</p></details> |
+| **[Policy and World Modeling Co-Training for Language Agents](http://arxiv.org/abs/2606.02388v1)** | 2026-06-01 | WM | 9 pages, 6 figures |
+| **[TabPrep: Closing the Feature Engineering Gap in Tabular Benchmarks](http://arxiv.org/abs/2606.02384v1)** | 2026-06-01 | WM |  |
+| **[COMAP: Co-Evolving World Models and Agent Policies for LLM Agents](http://arxiv.org/abs/2606.02372v1)** | 2026-06-01 | WM |  |
+| **[Causal Forcing++: Scalable Few-Step Autoregressive Diffusion Distillation for Real-Time Interactive Video Generation](http://arxiv.org/abs/2605.15141v3)** | 2026-06-01 | WM |  |
+| **[World-Task Factorization for Robot Learning](http://arxiv.org/abs/2606.02027v1)** | 2026-06-01 | WM |  |
+| **[Scaling Agentic Capabilities via Grounded Interaction Synthesis](http://arxiv.org/abs/2606.02001v1)** | 2026-06-01 | WM |  |
+| **[SafeMCP: Proactive Power Regulation for LLM Agent Defense via Environment-Grounded Look-Ahead Reasoning](http://arxiv.org/abs/2606.01991v1)** | 2026-06-01 | WM | <details><summary>Accep...</summary><p>Accepted to the 64th Annual Meeting of the Association for Computational Linguistics (ACL 2026), Main Conference</p></details> |
+| **[Learning Action-Conditional and Object-Centric Gaussian Splatting World Models for Rigid Objects](http://arxiv.org/abs/2606.01950v1)** | 2026-06-01 | WM |  |
+| **[Unified Driving Tokens: Representation- and Geometry-Guided Discrete Tokenizer for Driving World Models and Planning](http://arxiv.org/abs/2606.01935v1)** | 2026-06-01 | WM |  |
+| **[WorldCache: Accelerating World Models for Free via Heterogeneous Token Caching](http://arxiv.org/abs/2603.06331v2)** | 2026-06-01 | WM | <details><summary>Accep...</summary><p>Accepted by ICML 2026</p></details> |
+| **[IMWM: Intuition Models Complement World Models for Latent Planning](http://arxiv.org/abs/2606.01626v1)** | 2026-06-01 | WM |  |
 
