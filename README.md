@@ -7,7 +7,7 @@ A paper matching multiple directions is listed once, with all matched directions
 
 You can click the 'Watch' button to receive daily email notifications.
 
-Last update: 2026-07-05
+Last update: 2026-07-06
 
 _Based on the [DailyArxiv](https://github.com/Ed1sonChen/DailyArxiv) template by Ed1sonChen._
 
