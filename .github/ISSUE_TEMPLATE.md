@@ -1,5 +1,5 @@
 ---
-title: Latest 15 Papers - July 26, 2026
+title: Latest 15 Papers - July 27, 2026
 labels: documentation
 ---
 **Please check the [Github](https://github.com/guoyue0412/DailyArxiv) page for a better reading experience and more papers.**
@@ -7,6 +7,9 @@ labels: documentation
 ## Vision-Language-Action (VLA)
 | **Title** | **Date** | **Directions** | **Comment** |
 | --- | --- | --- | --- |
+| **[SAFE-Pruner: Semantic Attention-Guided Future-Aware Token Pruning for Efficient Vision-Language-Action Manipulation](http://arxiv.org/abs/2605.29662v2)** | 2026-07-24 | VLA | <details><summary>Accep...</summary><p>Accepted to ECCV 2026</p></details> |
+| **[NVIDIA OmniDreams: Real-Time Generative World Model for Closed-Loop Autonomous Vehicle Simulation](http://arxiv.org/abs/2606.03159v2)** | 2026-07-23 | VLA, WAM, WM |  |
+| **[Addressing the Orchestration Gap in Generalist Robots via Physical Agency](http://arxiv.org/abs/2607.21725v1)** | 2026-07-23 | VLA |  |
 | **[AXIS: A Growable Community-Driven Data Engine for Scalable Robot Manipulation](http://arxiv.org/abs/2607.21588v1)** | 2026-07-23 | VLA | <details><summary>Proje...</summary><p>Project Website: https://axisaiorg.github.io/AXIS-V1/</p></details> |
 | **[HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving](http://arxiv.org/abs/2607.20988v1)** | 2026-07-23 | VLA, WM | <details><summary>20 pa...</summary><p>20 pages with 13 figures</p></details> |
 | **[VPWEM: Non-Markovian Visuomotor Policy with Working and Episodic Memory](http://arxiv.org/abs/2603.04910v2)** | 2026-07-23 | VLA | <details><summary>Accep...</summary><p>Accepted to IEEE Robotics and Automation Letters (RA-L). \\textcopyright 2026 IEEE</p></details> |
@@ -19,9 +22,6 @@ labels: documentation
 | **[RoboInter1.5: A Holistic Intermediate Representation Suite for Embodied World Modeling and Robotic Manipulation](http://arxiv.org/abs/2607.18709v2)** | 2026-07-22 | VLA, WM | <details><summary>28 pa...</summary><p>28 pages. arXiv admin note: substantial text overlap with arXiv:2602.09973</p></details> |
 | **[NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation](http://arxiv.org/abs/2607.19695v1)** | 2026-07-22 | VLA |  |
 | **[LENS: LLM-guided Environment Simplification for Planning and Control in Clutter](http://arxiv.org/abs/2607.19633v1)** | 2026-07-22 | VLA |  |
-| **[Evaluating Uncertainty and Quality of Visual Language Action-enabled Robots](http://arxiv.org/abs/2507.17049v3)** | 2026-07-21 | VLA |  |
-| **[Guide, Think, Act: Interactive Embodied Reasoning in Vision-Language-Action Models](http://arxiv.org/abs/2605.13632v2)** | 2026-07-21 | VLA |  |
-| **[AnchorRefine: Synergy-Manipulation Based on Trajectory Anchor and Residual Refinement for Vision-Language-Action Models](http://arxiv.org/abs/2604.17787v2)** | 2026-07-21 | VLA | <details><summary>The a...</summary><p>The authors have decided to withdraw this manuscript because the work requires substantial revision and further experimental validation</p></details> |
 
 ## World Action Model (WAM)
 | **Title** | **Date** | **Directions** | **Comment** |
@@ -45,19 +45,19 @@ labels: documentation
 ## World Model (WM)
 | **Title** | **Date** | **Directions** | **Comment** |
 | --- | --- | --- | --- |
+| **[Robot-Factored World Models via Robot Rendering](http://arxiv.org/abs/2607.22535v1)** | 2026-07-24 | WM | <details><summary>Proje...</summary><p>Project Page: https://bjkim95.github.io/rofacto/</p></details> |
+| **[ViTacWorld: Scaling Visuo-Tactile World Models for Contact-Rich Robot Manipulation](http://arxiv.org/abs/2607.22530v1)** | 2026-07-24 | WM | <details><summary>18 pa...</summary><p>18 pages, 6 figures, 5 tables. Project page: https://vitacworld.github.io/</p></details> |
+| **[On the Identifiability of Controlled World Models](http://arxiv.org/abs/2607.22430v1)** | 2026-07-24 | WM |  |
+| **[Agentic Real2Sim: Physics-based World Modeling with Vision-Language Agents](http://arxiv.org/abs/2607.19190v3)** | 2026-07-24 | WM | Authorship change |
+| **[BiWM: Advancing Open-Source Interactive Video World Models with Bidirectional Autoregression](http://arxiv.org/abs/2606.10135v4)** | 2026-07-24 | WM |  |
+| **[Action-Conditioned World Model for Goal Plane Probe Guidance in Robotic Ultrasound](http://arxiv.org/abs/2607.21918v1)** | 2026-07-24 | WM |  |
+| **[TRW: TRACE-RealWorld---An Auditable Consistency Contract for World Models as Materialized Views](http://arxiv.org/abs/2607.21910v1)** | 2026-07-24 | WM | <details><summary>50 pa...</summary><p>50 pages, 22 tables, 10 figures</p></details> |
 | **[Streaming Multi-Agent Autoregressive Diffusion Model with World State Registers](http://arxiv.org/abs/2607.21594v1)** | 2026-07-23 | WM | <details><summary>Proje...</summary><p>Project page: https://vail-ucla.github.io/worldweaver/</p></details> |
+| **[Persistent Computational State: A Session-Centric Runtime for Generative World Models](http://arxiv.org/abs/2607.21686v1)** | 2026-07-23 | WM | <details><summary>29 pa...</summary><p>29 pages, 8 figures, 10 tables</p></details> |
 | **[The Sensation Modulating Network:Haltability as the architectural ground for object-directed phenomenology](http://arxiv.org/abs/2605.26856v2)** | 2026-07-23 | WM | <details><summary>51 pa...</summary><p>51 pages, main body 39 pages + References 6 pages, Appendices 6 pages, Tables 3, and Figures 16</p></details> |
 | **[PhysCoRe: Physics-Corrected Residual World Models for Material-Aware Deformable Dynamics](http://arxiv.org/abs/2607.20653v1)** | 2026-07-22 | WM |  |
 | **[Active Inference as a Convex Markov Decision Process](http://arxiv.org/abs/2607.20152v1)** | 2026-07-22 | WM |  |
 | **[WorldPack: Dynamic Frame Compression for Long-context Video World Modeling](http://arxiv.org/abs/2512.02473v2)** | 2026-07-22 | WM |  |
 | **[LAVIFT: Latent-Action-Guided Vision Fine-Tuning for Surgical Interaction Recognition](http://arxiv.org/abs/2607.19889v1)** | 2026-07-22 | WM |  |
 | **[KineBench: Benchmarking Embodied World Models via IDM-Free Kinematic Grounding](http://arxiv.org/abs/2607.19876v1)** | 2026-07-22 | WM | Accept to ECCV2026 |
-| **[Dreamer-CPC: Message Learning with World Models for Decentralized Multi-agent Reinforcement Learning](http://arxiv.org/abs/2607.19809v1)** | 2026-07-22 | WM | <details><summary>15 pa...</summary><p>15 pages, 6 figures. Under review at ICONIP 2026</p></details> |
-| **[The World Model Remembers, the Actor Forgets: Dream Rehearsal for Continual Model-Based RL](http://arxiv.org/abs/2607.19749v1)** | 2026-07-22 | WM | <details><summary>11 pa...</summary><p>11 pages, 2 figures. Code, pre-registration trail, and run data: https://github.com/gurpnijjer/dream-rehearsal</p></details> |
-| **[Agentic Real2Sim: Physics-based World Modeling with Vision-Language Agents](http://arxiv.org/abs/2607.19190v2)** | 2026-07-22 | WM | <details><summary>Proje...</summary><p>Project page URL fixed</p></details> |
-| **[Koopman Dreamer: Spectrally Constrained Latent Dynamics for Stable World-Model Imagination](http://arxiv.org/abs/2607.19719v1)** | 2026-07-22 | WM | <details><summary>20 pa...</summary><p>20 pages, 13 figures, 11 tables</p></details> |
-| **[Environment-free Synthetic Data Generation for API-Calling Agents](http://arxiv.org/abs/2607.16900v2)** | 2026-07-21 | WM |  |
-| **[Masked Visual Actions for Unified World Modeling](http://arxiv.org/abs/2607.19343v1)** | 2026-07-21 | WM | <details><summary>Proje...</summary><p>Project webpage: https://masked-visual-actions.github.io</p></details> |
-| **[The Theory of Mind Utility: Formal Specification of a Mentalizing Mechanism](http://arxiv.org/abs/2606.12721v2)** | 2026-07-21 | WM |  |
-| **[ABot-World-0: Infinite Interactive World Rollout on a Single Desktop GPU](http://arxiv.org/abs/2607.19191v1)** | 2026-07-21 | WM |  |
 
