@@ -1,10 +1,303 @@
 {
-  "date": "2026-08-12",
+  "date": "2026-08-13",
   "directions": [
     {
       "label": "Vision-Language-Action (VLA)",
       "abbrev": "VLA",
       "papers": [
+        {
+          "Title": "DreamFly: Causal Memory and Receding-Horizon Diffusion Planning for Aerial Vision-Language Navigation",
+          "Abstract": "Aerial vision-language navigation (VLN) requires an embodied agent to integrate visual evidence over time, plan future actions, and determine when it has reached a navigation goal under partial observability. Although recent VLA models offer a promising perception-to-action paradigm, adapting them to aerial navigation remains challenging due to limited historical context, short planning horizons, and unreliable implicit termination. To address these challenges, we propose DreamFly, a diffusion-based aerial VLN framework built on Dream-VLA. DreamFly introduces a causally aligned historical memory that augments the current visual representation using only observations preceding the current decision step, enabling temporal reasoning without future information leakage. We further formulate navigation as receding-horizon diffusion planning, where the policy predicts a $K$-step action chunk but executes only the first action before replanning. This plan-$K$, execute-one strategy uses future actions as auxiliary planning targets while preserving closed-loop visual feedback. Finally, LiteStop estimates the stop probability directly from action logits at the initial all-mask state, decoupling explicit termination from action generation. Experiments on the OpenFly benchmark demonstrate consistent improvements in seen and unseen environments. DreamFly achieves 32.04%/29.46% SR and 28.22%/23.54% SPL on the test-seen/test-unseen splits, respectively, outperforming all compared methods on both metrics while attaining the lowest navigation error. These results demonstrate the effectiveness of jointly modeling historical context, future action structure, and explicit termination for aerial VLN.",
+          "Authors": [
+            "Yan Deng",
+            "Fei Xu"
+          ],
+          "Link": "http://arxiv.org/abs/2608.12308v1",
+          "Tags": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "Comment": "24 pages, 6 figures, 3 tables",
+          "Date": "2026-08-12T17:54:33Z",
+          "Directions": [
+            "VLA"
+          ]
+        },
+        {
+          "Title": "MuseVLA: An Adaptive Multimodal Sensing Vision-Language-Action Model for Robotic Manipulation",
+          "Abstract": "Humans naturally leverage diverse sensing modalities to interact with the physical world, while most Vision-Language-Action (VLA) models for robotics rely solely on RGB observations. This limits their ability to perceive physical properties that are difficult or impossible to infer from RGB cameras, such as temperature, sound, or radar response. We present MuseVLA, an adaptive multimodal sensing VLA model that integrates novel sensors as on-demand tools for robotic manipulation. Given a task instruction and visual context, MuseVLA first generates a sensor token and target description that select the sensing modality to invoke and what to attend to, analogous to a tool call with arguments. It then converts the selected sensor measurement into a grounded sensor image, a unified intermediate representation that encodes heterogeneous readings for multimodal fusion and action generation. This design decouples sensor-specific processing from the VLA backbone, enabling efficient integration of diverse modalities. To reduce the need for expensive multisensory robot datasets, we further introduce a data synthesis pipeline that augments existing RGB video datasets with grounded sensor images, enabling generalization to unseen sensor-guided tasks. We evaluate MuseVLA on a real-world robot across challenging dexterous hand manipulation tasks that require multimodal sensing inputs, including temperature-guided pick-and-place, audio-driven object search, and radar-assisted hidden object retrieval. MuseVLA achieves 80.6% success rate on average, outperforming RGB-only and multisensory VLA baselines significantly, and exhibits strong zero-shot capabilities on unseen tasks. Code, model and dataset are available at https://github.com/microsoft/MuseVLA.",
+          "Authors": [
+            "Xingyuming Liu",
+            "Ruichun Ma",
+            "Heyu Guo",
+            "Qixiu Li",
+            "Qingwen Yang",
+            "Lin Luo",
+            "Shiqi Jiang",
+            "Chenren Xu",
+            "Jiaolong Yang",
+            "Baining Guo"
+          ],
+          "Link": "http://arxiv.org/abs/2606.17598v2",
+          "Tags": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "Comment": "",
+          "Date": "2026-08-12T12:13:59Z",
+          "Directions": [
+            "VLA"
+          ]
+        },
+        {
+          "Title": "VANE: Reliable Test-Time Training for Vision-Language-Action Models via Future Visual Representation Prediction",
+          "Abstract": "Test-time training (TTT) offers a lightweight way to adapt vision--language--action (VLA) policies from unlabeled deployment streams, but it remains difficult to use reliably in closed-loop manipulation. A shared adaptation space can mix incompatible task corrections, while an online update can alter subsequent actions before its consequences are known. We introduce a reliable TTT framework for VLA policies (VANE). VANE conditions prompt adaptation on the current vision--language context and learns from the future visual consequences of executed actions. Candidate updates are isolated from the live policy, evaluated on subsequent observations, and committed only when supported by future evidence, making adaptation selective and reversible. On SimplerEnv WidowX, VANE improves average success by $3.2$ percentage points over the corresponding TTT baseline. Results on Google Robot further show that deployment-time gains remain task- and embodiment-dependent. Together, these results demonstrate a constrained, evidence-based approach to adapting VLA policies during interaction.",
+          "Authors": [
+            "Hongjin Ji",
+            "Guoyang Xia",
+            "Luoyang Sun",
+            "Fangxiang Feng",
+            "Lei Ren"
+          ],
+          "Link": "http://arxiv.org/abs/2608.09448v2",
+          "Tags": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "Comment": "",
+          "Date": "2026-08-12T10:16:02Z",
+          "Directions": [
+            "VLA"
+          ]
+        },
+        {
+          "Title": "Robotic Manipulation is Vision-to-Geometry Mapping: Vision-Geometry Backbones over Language and Video Models",
+          "Abstract": "At its core, robotic manipulation is a problem of vision-to-geometry mapping ($f(v) \\rightarrow G$). Physical actions are fundamentally defined by geometric properties like 3D positions and spatial relationships. Consequently, we argue that the foundation for generalizable robotic control should be a vision-geometry backbone, rather than the widely adopted vision-language or video models. Conventional VLA and video-predictive models rely on backbones pretrained on large-scale 2D image-text or temporal pixel data. While effective, their representations are largely shaped by semantic concepts or 2D priors, which do not intrinsically align with the precise 3D geometric nature required for physical manipulation. Driven by this insight, we propose the Vision-Geometry-Action (VGA) model, which directly conditions action generation on pretrained 3D representations. Specifically, VGA replaces conventional language or video backbones with a pretrained 3D world model, establishing a seamless vision-to-geometry mapping that translates visual inputs directly into physical actions. To further enhance geometric consistency, we introduce Progressive Volumetric Modulation and jointly train action and 3D property prediction to preserve geometric representations. Extensive experiments validate the effectiveness of our approach. Across simulation benchmarks, VGA outperforms leading VLA, 3D-VLA, and WAM baselines, including $π_{0.5}$, OpenVLA-OFT, GeoVLA, and Motus. In real-world deployments, VGA surpasses $π_{0.5}$ under unseen viewpoints and accurately follows language instructions for target grasping. These results highlight that operating on native 3D representations, rather than relying primarily on language or video priors, offers a promising direction toward generalizable physical intelligence. Project page: https://hcplab-sysu.github.io/VisionGeometryActionModel.",
+          "Authors": [
+            "Zijian Song",
+            "Qichang Li",
+            "Jiawei Zhou",
+            "Zhenlong Yuan",
+            "Tianshui Chen",
+            "Liang Lin",
+            "Guangrun Wang"
+          ],
+          "Link": "http://arxiv.org/abs/2604.12908v2",
+          "Tags": [
+            "cs.RO"
+          ],
+          "Comment": "Accepted at ACM Multimedia 2026",
+          "Date": "2026-08-12T08:45:14Z",
+          "Directions": [
+            "VLA",
+            "WAM",
+            "WM"
+          ]
+        },
+        {
+          "Title": "RLinf-VLA: A Unified and Efficient Framework for Reinforcement Learning of Vision-Language-Action Models",
+          "Abstract": "Recent studies have demonstrated the potential of reinforcement learning (RL) to improve the task performance of vision-language-action (VLA) models through interaction. However, current efforts remain fragmented, lacking a unified platform for fair comparison across architectures and algorithms, as well as an efficient system design for scalable training. Therefore, we present RLinf-VLA, a unified and efficient framework for scalable RL training of VLA models. RLinf-VLA standardizes the integration of diverse VLA architectures, RL algorithms, and heterogeneous simulators through a unified interface, enabling extensibility and reproducibility. To improve efficiency, the framework adopts a flexible resource allocation architecture for rendering, inference, and training in RL pipelines. In particular, RLinf-VLA introduces a hybrid fine-grained pipeline allocation strategy that achieves a 1.61$\\times$-1.88$\\times$ training speedup on ManiSkill. Using this framework, RL-trained models achieve strong performance across embodied benchmarks, including 98.11% success on 130 LIBERO tasks, 97.66% success on 25 ManiSkill tasks, and 84.63% average success across 6 RoboTwin tasks. In addition, RLinf-VLA distills a set of effective practices for RL-based VLA training. We envision RLinf-VLA as a foundational framework for efficient, unified, and reproducible research in embodied intelligence.",
+          "Authors": [
+            "Hongzhi Zang",
+            "Mingjie Wei",
+            "Si Xu",
+            "Yongji Wu",
+            "Zhen Guo",
+            "Yuanqing Wang",
+            "Hao Lin",
+            "Peihong Wang",
+            "Liangzhi Shi",
+            "Yuqing Xie",
+            "Zhexuan Xu",
+            "Zhihao Liu",
+            "Kang Chen",
+            "Wenhao Tang",
+            "Quanlu Zhang",
+            "Weinan Zhang",
+            "Chao Yu",
+            "Yu Wang"
+          ],
+          "Link": "http://arxiv.org/abs/2510.06710v3",
+          "Tags": [
+            "cs.RO"
+          ],
+          "Comment": "Accepted to RSS 2026. This is the technical report of the RLinf Team, focusing on the algorithm side. For the system-level design, please refer to arXiv:2509.15965. The open-sourced code link: https://github.com/RLinf/RLinf",
+          "Date": "2026-08-12T08:36:04Z",
+          "Directions": [
+            "VLA"
+          ]
+        },
+        {
+          "Title": "Policy-Induced Hand Priors in Humanoid Dual-Arm Manipulation: Diagnosing and Mitigating Initial-Pose Dependence",
+          "Abstract": "Vision-language-action (VLA) policies are expected to operate robustly across variations in the robot's initial configuration, yet aggregate task success can conceal pose-specific failures and inappropriate hand selection. This work investigates initial-pose dependence in VLA-based humanoid dual-arm manipulation. We characterize the initial-condition-dependent early hand preference as a policy-induced hand prior and quantify it using HandPriorScore, residual hand bias, and target responsiveness. Evaluations across multiple policies and 17 initial configurations reveal strong initial-pose--policy interactions: the same pose produces substantially different success rates across policies, while a single policy exhibits large performance variation across poses. Specific initial arm configurations can suppress or induce an asymmetric hand preference, with the resulting effect varying in direction and strength across policies. Wrist-camera observations also influence hand selection and task performance. Expanding initial-pose coverage in the training dataset substantially improves robustness, while targeted augmentation around a low-performing configuration increases its success rate. Comparisons across training configurations show that sufficient exposure to the target simulation task is beneficial, whereas the effect of real or auxiliary data depends on pose coverage, simulation ratio, and observation availability. These findings characterize a pose-conditioned hand prior, identify a localized initial arm configuration as a causal handle on hand-selection behavior, and demonstrate how data coverage and training composition affect initial-pose robustness.",
+          "Authors": [
+            "Chaeyeon Jung",
+            "Juyoun Park"
+          ],
+          "Link": "http://arxiv.org/abs/2608.11769v1",
+          "Tags": [
+            "cs.RO"
+          ],
+          "Comment": "",
+          "Date": "2026-08-12T08:13:44Z",
+          "Directions": [
+            "VLA"
+          ]
+        },
+        {
+          "Title": "RoboHarness: A Memory-Augmented Policy Harness for Vision-Language-Action Model Robustness via In-Context Adaptation",
+          "Abstract": "Despite the promise of Vision-Language-Action (VLA) models as generalist robotic controllers, their robustness against perceptual noise and environmental variations in out-of-distribution (OOD) tasks remains fundamentally limited by the absence of long-term memory, causal failure attribution, and dynamic intervention capability. To address this, we propose RoboHarness, a memory-augmented policy harness that upgrades frozen VLA policies for robust in-context adaptation without parameter fine-tuning. Specifically, RoboHarness operates through an online pipeline of contrastive Dual-Memory Retrieval-Augmented Generation (RAG), an attribution-driven vision-language orchestrator implemented with a multimodal large language model, and extensible Model Context Protocol (MCP) interventions, while an offline Memory Consolidation module continuously distills the execution traces into reliable priors. Experimental evaluations across three backbone models ($π_0$, $π_{0.5}$, and SmolVLA) on LIBERO-PRO and our proposed LIBERO-RoboHarness benchmarks demonstrate that RoboHarness achieves an average absolute success rate gain of 56.6%. This includes a significant absolute improvement of 89.1% in long-horizon task chaining. The project page and source code are available at https://github.com/LZY-1021/RoboHarness.",
+          "Authors": [
+            "Zhuoran Li",
+            "Zhiyang Li",
+            "Kaijun Zhou",
+            "Jinyu Gu"
+          ],
+          "Link": "http://arxiv.org/abs/2603.24060v3",
+          "Tags": [
+            "cs.RO"
+          ],
+          "Comment": "8 pages, 10 figures, 4 tables. Accepted to the 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2026). Project page and source code: https://github.com/LZY-1021/RoboHarness",
+          "Date": "2026-08-12T07:57:23Z",
+          "Directions": [
+            "VLA"
+          ]
+        },
+        {
+          "Title": "G0.5: One Autoregressive Stream for Robot Reasoning and Action",
+          "Abstract": "The prevailing recipe for Vision-Language-Action (VLA) models couples a pretrained VLM with a separately trained flow-matching action expert. This makes the VLM a context encoder rather than a decision-maker. We introduce G0.5, a pretrained autoregressive VLA in which a single transformer decoder emits reasoning and action tokens under a single objective. Three components make this tractable at foundation-model scale: a learnable cross-embodiment action tokenizer that maps heterogeneous robot actions into a shared vocabulary; a native chain-of-thought stream interleaving task decomposition, object grounding, and action hints with action tokens; and a visual memory module that injects multi-second history through the vision encoder. Because reasoning and action share a single set of weights, the pretrained VLM's capabilities carry over to physical behavior: the model follows instructions closely, and prompts directly steer action granularity, task horizon, and out-of-distribution scene handling without further training. Pretrained on a large collection of robot datasets together with VQA samples, G0.5 surpasses state-of-the-art models across 7 independent regimes: real-world fine-tuning on R1lite and R1pro robots (76.7\\% vs.\\ 53.3\\% for $π_{0.5}$ and 24.4\\% for GR00T-N1.7), the 2025 BEHAVIOR Challenge on 50 long-horizon household mobile manipulation tasks using a generalist policy (31.4\\% vs.\\ 26.3\\% for $π_{0.5}$ and 26.1\\% for the challenge winner), DROID post-training followed by zero-shot transfer to an unseen environment and objects (82.5\\%), a language-following Pick-and-Place benchmark, LIBERO (98.9\\%), RoboTwin 2.0 (93.3\\%), and SimplerEnv-Bridge (87.3\\%).",
+          "Authors": [
+            "Yicheng Liu",
+            "Zibin Dong",
+            "Baijun Ye",
+            "Tianyuan Yuan",
+            "Tao Jiang",
+            "Anqi Yang",
+            "Shicheng Cao",
+            "Haonan Liu",
+            "Yue Sun",
+            "Zihan Guo",
+            "Xiao Liu",
+            "Dong Ke",
+            "Changxun Pan",
+            "Chenru Wu",
+            "Tailai Cheng",
+            "Xiaoshu Ren",
+            "Xinlei Zhang",
+            "Jianning Cui",
+            "Zijie Zhao",
+            "Haoyu Zhang",
+            "Kaiming Xu",
+            "Haodong Yang",
+            "Bowen Zhang",
+            "Jiahui Niu",
+            "Shaoting Zhu",
+            "Shiduo Zhang",
+            "Hang Zhao"
+          ],
+          "Link": "http://arxiv.org/abs/2608.11739v1",
+          "Tags": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "Comment": "",
+          "Date": "2026-08-12T07:26:47Z",
+          "Directions": [
+            "VLA"
+          ]
+        },
+        {
+          "Title": "StellaVLA: In-Context Structured Demonstration for Generalizable Vision-Language-Action Models",
+          "Abstract": "Vision-Language-Action (VLA) models can follow instructions and manipulate objects, but their performance often collapses out of distribution (OOD), when the scene, viewpoint, or object differs from training. Adapting to each new situation typically requires collecting more data and fine-tuning. We present StellaVLA, a framework that instead adapts at test time by conditioning on a single retrieved demonstration. The key idea is to move beyond imitating what an expert did and instead convey why: an automated offline pipeline converts each raw trajectory into a structured demonstration, e.g., a task plan, sub-goal descriptions, and verbalized 3D motion, at zero human-annotation cost. Provided as in-context guidance, this structured demonstration lets the policy reason about the task rather than mimic a pixel trajectory, which also makes it transferable across embodiments (real-robot, human-hand, or XR demonstrations). A parallel dual-training design internalizes this reasoning during training through a joint action-and-language objective, while inference uses the action expert alone, preserving real-time, high-frequency control with no added latency. On the VLA-Arena leaderboard(Aug 1, 2026), StellaVLA ranks first with an overall score of 0.63, versus 0.44 and 0.22 for the strong prior models ($π_{0.5}$ and LingBot-VLA), and it further leads on LIBERO with 98.8% average success rate and LIBERO-Plus with 85.1% success rate. Our real-robot benchmark demonstrates that StellaVLA can use both human/robot demos and human-to-robot (XR) demos as in-context structured demonstration to help VLA model adapt to OOD tasks.",
+          "Authors": [
+            "Siyu Xu",
+            "Yunke Wang",
+            "Zijian Wang",
+            "Dihao Zhu",
+            "Chenghao Xia",
+            "Chengbin Du",
+            "Daochang Liu",
+            "Tao Huang",
+            "Chang Xu"
+          ],
+          "Link": "http://arxiv.org/abs/2608.11671v1",
+          "Tags": [
+            "cs.RO"
+          ],
+          "Comment": "",
+          "Date": "2026-08-12T05:30:53Z",
+          "Directions": [
+            "VLA"
+          ]
+        },
+        {
+          "Title": "TMRL: Diffusion Timestep-Modulated Pretraining Enables Exploration for Efficient Policy Finetuning",
+          "Abstract": "Fine-tuning pre-trained robot policies with reinforcement learning (RL) often inherits the bottlenecks introduced by pre-training with behavioral cloning (BC), which produces narrow action distributions that lack the coverage necessary for downstream exploration. We present a unified framework that enables the exploration necessary to enable efficient robot policy finetuning by bridging BC pre-training and RL fine-tuning. Our pre-training method, Context-Smoothed Pre-training (CSP), injects forward-diffusion noise into policy inputs, creating a continuum between precise imitation and broad action coverage. We then fine-tune pre-trained policies via Timestep-Modulated Reinforcement Learning (TMRL), which trains the agent to dynamically adjust this conditioning during fine-tuning by modulating the diffusion timestep, granting explicit control over exploration. Integrating seamlessly with arbitrary policy inputs, e.g., states, 3D point clouds, or image-based VLA policies, we show that TMRL improves RL fine-tuning sample efficiency. Notably, TMRL enables successful real-world fine-tuning on complex manipulation tasks in under one hour. Videos and code available at https://weirdlabuw.github.io/tmrl/.",
+          "Authors": [
+            "Matthew M. Hong",
+            "Jesse Zhang",
+            "Anusha Nagabandi",
+            "Abhishek Gupta"
+          ],
+          "Link": "http://arxiv.org/abs/2605.12236v2",
+          "Tags": [
+            "cs.RO",
+            "cs.AI",
+            "cs.LG"
+          ],
+          "Comment": "",
+          "Date": "2026-08-12T05:14:57Z",
+          "Directions": [
+            "VLA"
+          ]
+        },
+        {
+          "Title": "Prompt-Driven Exploration",
+          "Abstract": "Exploration is essential to RL since a policy cannot improve by repeatedly sampling the behaviors it already prefers. Standard methods inject stochasticity in the action space, but such jitter only yields rollouts close to the original. Escaping a weak policy often requires global perturbations that action noise cannot produce. Large language models (LLMs) and vision-language-action (VLA) models offer a pathway: they condition the policy on a natural language prompt, and since the rollout follows from it, modifying the prompt induces global changes. The challenge is finding prompts that induce useful global changes. With a weak policy that rarely succeeds, reward is too sparse to select on. Our idea is to refine prompts from the rollouts themselves: a vision-language model (VLM) reasons over the rollout video, diagnoses how the policy responded, and rewrites the prompt to elicit better behavior next time. This procedure resembles posterior sampling, a classical RL exploration framework, at the level of prompts: the VLM maintains an implicit distribution over useful prompts and updates it from observed rollouts. We call this strategy Prompt-Driven Exploration (PDE). Across manipulation and reasoning tasks, PDE enables RL to learn successful policies even from zero-reward starts, and improves sample efficiency more broadly. Our website is available at https://xinyunsunshine.github.io/prompt-rl.",
+          "Authors": [
+            "Sunshine Jiang",
+            "John Marangola",
+            "David Zhang",
+            "Raghuram Kowdeed",
+            "Ruiyang Luo",
+            "Nitish Dashora",
+            "Richard Li",
+            "Pulkit Agrawal",
+            "Zhang-Wei Hong"
+          ],
+          "Link": "http://arxiv.org/abs/2607.08837v2",
+          "Tags": [
+            "cs.LG",
+            "cs.AI"
+          ],
+          "Comment": "",
+          "Date": "2026-08-12T00:00:42Z",
+          "Directions": [
+            "VLA"
+          ]
+        },
+        {
+          "Title": "Adaptation of Generalist Robot Policies with Minimal Data",
+          "Abstract": "A central goal in robot learning is to move beyond task-specific human data collection toward robots that improve through autonomous interaction. Yet fully autonomous learning remains difficult with current policies: sparse rewards and weak zero-shot exploration make it unlikely that a robot will discover successful behavior from scratch. We study minimal-data adaptation, a regime in which a pre-trained robot policy must learn a new task from as little as one demonstration followed by autonomous online interaction. This setting serves as the closest tractable proxy for fully autonomous improvement, allowing us to study whether minimal human guidance can bootstrap autonomous learning and what algorithmic ingredients make it feasible. We build MiDAS, a simple offline-to-online RL recipe that first anchors a pre-trained VLA to the target task with behavior cloning on single/few demonstrations, then improves it through value-based online RL on a residual policy parameterization. Across LIBERO and RoboCasa, MiDAS recovers strong task performance from as little as one demonstration, substantially outperforming baselines and generalizing beyond demonstrated conditions. We further evaluate MiDAS on a bimanual YAM platform. Starting from a fragile low-success policy obtained from a single demonstration, MiDAS improves its robustness and learns new successful behaviors over ~6 hours of online interaction. To the best of our knowledge, this is the first demonstration of reliable robot policy adaptation from a single task demonstration.",
+          "Authors": [
+            "Shreyas Kowshik",
+            "Sreyas Venkataraman",
+            "Leo Wang",
+            "Niharika Pant",
+            "Max Simchowitz",
+            "Aviral Kumar"
+          ],
+          "Link": "http://arxiv.org/abs/2608.11363v1",
+          "Tags": [
+            "cs.RO",
+            "cs.LG"
+          ],
+          "Comment": "",
+          "Date": "2026-08-11T19:15:26Z",
+          "Directions": [
+            "VLA"
+          ]
+        },
         {
           "Title": "XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving",
           "Abstract": "Vision-Language-Action (VLA) models can connect scene understanding, semantic reasoning, and trajectory generation for autonomous driving. However, verbose natural-language Chain-of-Thought (CoT) is poorly suited to real-time control because it is open-ended, costly to decode, and difficult to optimize as an action-facing representation. We propose XCoT-VLA, which replaces descriptive rationales with compact executable CoT tokens learned from automatically constructed Reason-Action supervision. Logged trajectories provide action evidence, while scene context supplies causal semantics. The predicted XCoT sequence remains in context and conditions fixed trajectory queries through shared multimodal self-attention. Deterministic token-function routing applies the Reason FFN to XCoT tokens and the Control FFN to trajectory queries for flow-matching trajectory generation. We further introduce XCoT Policy Optimization (XCPO) as an optional refinement extension in the same executable token space. XCoT-VLA reduces longitudinal ADE from 1.645 to 1.323 on a general-distribution set and lateral FDE from 1.616 to 0.648 in lane-change scenarios. By representing driving-oriented reasoning with only 2-6 executable XCoT tokens, our method substantially reduces autoregressive reasoning overhead and remains within the real-time planning budget. These results demonstrate that driving-oriented reasoning can be compact, executable, and directly connected to trajectory generation.",
@@ -223,7 +516,8 @@
           ],
           "Link": "http://arxiv.org/abs/2608.09730v1",
           "Tags": [
-            "cs.CV"
+            "cs.CV",
+            "cs.RO"
           ],
           "Comment": "",
           "Date": "2026-08-10T15:30:38Z",
@@ -279,27 +573,6 @@
           ],
           "Comment": "",
           "Date": "2026-08-10T11:37:46Z",
-          "Directions": [
-            "VLA"
-          ]
-        },
-        {
-          "Title": "VANE: Reliable Test-Time Training for Vision-Language-Action Models via Future Visual Representation Prediction",
-          "Abstract": "Test-time training (TTT) offers a lightweight way to adapt vision--language--action (VLA) policies from unlabeled deployment streams, but it remains difficult to use reliably in closed-loop manipulation. A shared adaptation space can mix incompatible task corrections, while an online update can alter subsequent actions before its consequences are known. We introduce a reliable TTT framework for VLA policies (VANE). VANE conditions prompt adaptation on the current vision--language context and learns from the future visual consequences of executed actions. Candidate updates are isolated from the live policy, evaluated on subsequent observations, and committed only when supported by future evidence, making adaptation selective and reversible. On SimplerEnv WidowX, VANE improves average success by $3.2$ percentage points over the corresponding TTT baseline. Results on Google Robot further show that deployment-time gains remain task- and embodiment-dependent. Together, these results demonstrate a constrained, evidence-based approach to adapting VLA policies during interaction.",
-          "Authors": [
-            "Hongjin Ji",
-            "Guoyang Xia",
-            "Luoyang Sun",
-            "Fangxiang Feng",
-            "Lei Ren"
-          ],
-          "Link": "http://arxiv.org/abs/2608.09448v1",
-          "Tags": [
-            "cs.RO",
-            "cs.CV"
-          ],
-          "Comment": "",
-          "Date": "2026-08-10T11:22:54Z",
           "Directions": [
             "VLA"
           ]
@@ -854,281 +1127,6 @@
           "Directions": [
             "VLA"
           ]
-        },
-        {
-          "Title": "EchoVLA: Robotic Vision-Language-Action Model with Synergistic Declarative Memory for Mobile Manipulation",
-          "Abstract": "Recent progress in Vision-Language-Action (VLA) models has enabled embodied agents to interpret multimodal instructions and perform complex tasks. However, existing VLAs are mostly confined to short-horizon, table-top manipulation, lacking the memory and reasoning capability required for mobile manipulation, where agents must coordinate navigation and manipulation under changing spatial contexts. In this work, we present EchoVLA, a memory-aware VLA model for mobile manipulation. EchoVLA incorporates a synergistic declarative memory inspired by the human brain, consisting of a scene memory that maintains a collection of spatial-semantic maps and an episodic memory that stores task-level experiences with multimodal contextual features. The two memories are individually stored, updated, and retrieved based on current observations, task history, and instructions, and their retrieved representations are fused via coarse- and fine-grained attention to guide base-arm diffusion policies. To support large-scale training, we further introduce MoMani, an automated benchmark that generates expert-level trajectories through multimodal large language model (MLLM)-guided planning and feedback-driven refinement, supplemented with real-robot demonstrations. Comprehensive simulated and real-world results demonstrate that EchoVLA substantially improves overall performance, e.g., it achieves the highest success rates of 0.52 on manipulation/navigation tasks and 0.31 on mobile manipulation tasks in simulation, exceeding the strong baseline $π_{0.5}$ by +0.20 and +0.11, respectively.",
-          "Authors": [
-            "Min Lin",
-            "Xiwen Liang",
-            "Bingqian Lin",
-            "Jingzhi Liu",
-            "Zijian Jiao",
-            "Kehan Li",
-            "Ziang Yan",
-            "Yu Sun",
-            "Weijia Liufu",
-            "Yuhan Ma",
-            "Jiarui Hu",
-            "Yuecheng Liu",
-            "Shen Zhao",
-            "Yuzheng Zhuang",
-            "Xiaodan Liang"
-          ],
-          "Link": "http://arxiv.org/abs/2511.18112v3",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-08-07T03:04:06Z",
-          "Directions": [
-            "VLA"
-          ]
-        },
-        {
-          "Title": "STRONG-VLA: Decoupled Robustness Learning for Vision-Language-Action Models under Multimodal Perturbations",
-          "Abstract": "Despite their strong performance in embodied tasks, recent Vision-Language-Action (VLA) models remain highly fragile under multimodal perturbations, where visual corruption and linguistic noise jointly induce distribution shifts that degrade task-level execution. Existing robustness approaches typically rely on joint training with perturbed data, treating robustness as a static objective, which leads to conflicting optimization between robustness and task fidelity. In this work, we propose STRONG-VLA, a decoupled fine-tuning framework that explicitly separates robustness acquisition from task-aligned refinement. In Stage I, the model is exposed to a curriculum of multimodal perturbations with increasing difficulty, enabling progressive robustness learning under controlled distribution shifts. In Stage II, the model is re-aligned with clean task distributions to recover execution fidelity while preserving robustness. We further establish a comprehensive benchmark with 28 perturbation types spanning both textual and visual modalities, grounded in realistic sources of sensor noise, occlusion, and instruction corruption. Extensive experiments on the LIBERO benchmark show that STRONG-VLA consistently improves task success rates across multiple VLA architectures. On OpenVLA, our method achieves gains of up to 12.60% under seen perturbations and 7.77% under unseen perturbations. Notably, similar or larger improvements are observed on OpenVLA-OFT (+14.48% / +13.81%) and pi0 (+16.49% / +5.58%), demonstrating strong cross-architecture generalization. Real-world experiments on an AIRBOT robotic platform further validate its practical effectiveness. These results highlight the importance of decoupled optimization for multimodal robustness and establish STRONG-VLA as a simple yet principled framework for robust embodied control.",
-          "Authors": [
-            "Yuhan Xie",
-            "Yuping Yan",
-            "Yunqi Zhao",
-            "Handing Wang",
-            "Yaochu Jin"
-          ],
-          "Link": "http://arxiv.org/abs/2604.10055v3",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-08-07T02:59:21Z",
-          "Directions": [
-            "VLA"
-          ]
-        },
-        {
-          "Title": "AtlasVLA: Persistent World-Ego State Modeling for Vision-Language-Action Models",
-          "Abstract": "While Vision-Language-Action (VLA) models have advanced embodied AI, their fundamentally reactive paradigm severely limits performance in partially observable and long-horizon tasks. When restricted to a single wrist-mounted camera, they inevitably suffer from perception forgetting as objects exit the field of view, and temporal task-progress forgetting} during multi-step execution. To overcome these bottlenecks, we propose AtlasVLA, a novel framework that transitions from direct reactive manipulation to proactive reasoning through a persistent world-ego state. AtlasVLA features a dual-memory architecture: a 4D Persistent World State Memory that lifts transient 2D observations into a globally updated, voxel-hashed spatial state to resolve visual blind spots, and an Ego-Working State Memory that tracks historical ego state and task progress. By conditioning a diffusion transformer (DiT) on this joint World-Ego state, AtlasVLA enables robust spatial reasoning. Extensive evaluations across LIBERO, RLBench, and real-world benchmarks demonstrate that AtlasVLA achieves state-of-the-art performance using solely a wrist camera. Remarkably, it decisively outperforms multi-view baselines, yielding absolute success rate improvements of 9.4% on LIBERO-Long and 17.5% in real-world long-horizon tasks.",
-          "Authors": [
-            "Guiyu Zhao",
-            "Longteng Guo",
-            "Yanghong Mei",
-            "Zilin Zhu",
-            "Yu Zhang",
-            "Bin Cao",
-            "Mingming Yu",
-            "Xingjian He",
-            "Jie Jiang",
-            "Jing Liu"
-          ],
-          "Link": "http://arxiv.org/abs/2608.06729v1",
-          "Tags": [
-            "cs.RO",
-            "cs.CV"
-          ],
-          "Comment": "",
-          "Date": "2026-08-07T02:49:39Z",
-          "Directions": [
-            "VLA"
-          ]
-        },
-        {
-          "Title": "Retrieve in Time, Correct in Frequency",
-          "Abstract": "Frozen vision-language-action (VLA) policies generate temporally extended action chunks, but long-horizon manipulation remains vulnerable to accumulated execution error and visual aliasing across task stages. Successful rollouts provide useful corrective evidence, yet current frame retrieval can return progress-misaligned actions,while direct replay or time-domain fusion can overwrite the reactive structure of the policy proposal. We introduce Retrieve in Time, Correct in Frequency (RTCF), a training-free test-time correction framework that improves frozen VLA performance with low model-side overhead.RTCF separates which experience to retrieve from which part of its action to transfer. Progressive Memory Alignment (PMA) causally aligns the growing visual execution history with complete successful trajectories through incrementally updated monotonic frontiers, jointly identifying a relevant memory and the current aligned memory position without stage labels. From the aligned action chunk,RTCF transfers a coefficient-wise-clipped low-frequency residual on motion channels. Higher-frequency components and gripper decisions remain inherited from the frozen policy. Across four LIBERO suites and 2,000 episodes per condition, RTCF raises aggregate success from 86.4% to 88.4% and improves LIBERO-Long from 61.6% to 68.6%.These gains require no parameter updates, repeated VLA inference, or additional GPU resources: correction can be performed on the client CPU after a single policy invocation, and the median latencies sum to only 10.99 ms per action chunk",
-          "Authors": [
-            "Yuze Fan",
-            "Yue Cao",
-            "Pengjie Gao",
-            "Haojia Gao",
-            "Guangqiu Guo",
-            "Ziyue Zhang",
-            "Junbo Tan",
-            "Bokui Chen",
-            "Zhuo Zou",
-            "Xueqian Wang"
-          ],
-          "Link": "http://arxiv.org/abs/2608.04527v2",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-08-07T01:42:57Z",
-          "Directions": [
-            "VLA"
-          ]
-        },
-        {
-          "Title": "CrossTracer: Cross-Embodiment Navigation via VLA Model Reasoning and Trace Residuals Adapting",
-          "Abstract": "Vision-language-action (VLA) models provide strong semantic priors for robot navigation, but they often ignore embodiment-specific mobility constraints. A path that is semantically plausible for one robot may be physically infeasible for another. We propose CrossTracer, a hierarchical framework for cross-embodiment navigation through adaptive trace residuals. CrossTracer represents navigation plans as normalized image-plane waypoints, forming a unified pixel-space interface between semantic reasoning and physical grounding. First, Vision-Language Trace Proposer (VL-Tracer) adapts a pretrained VLA model to predict an initial navigation trace from egocentric observations and flexible goal specifications. Second, CE-Adapter refines this trace by predicting embodiment-conditioned residual corrections from visual traversability cues, robot identity, and the initial trace. To train the refinement module without costly manual annotation, Cross-Embodiment RRT* (CE-RRT*) converts panoptic segmentation into robot-conditioned traversability cost maps and generates cost-minimizing pixel-space traces. We evaluate CrossTracer on the NaviTrace benchmark, which tests whether a model can generate embodiment-consistent navigation traces from egocentric observations, language instructions, and robot embodiment types. CrossTracer achieves a total score of 45.68, outperforming the strongest evaluated general-purpose baseline, Gemini-2.5-Pro, by 10.01 points, corresponding to a 28.1% relative improvement. Real-world deployment on wheeled and legged robots further shows improved navigation success and execution efficiency.",
-          "Authors": [
-            "Yao Wang",
-            "Siyuan Wang",
-            "Zhirui Sun",
-            "Wenzheng Chi",
-            "Liang Lin",
-            "Jiankun Wang",
-            "Wenjun Xu"
-          ],
-          "Link": "http://arxiv.org/abs/2608.06688v1",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-08-07T01:24:53Z",
-          "Directions": [
-            "VLA"
-          ]
-        },
-        {
-          "Title": "DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation",
-          "Abstract": "Vision-Language-Action (VLA) models have become a powerful paradigm for robot manipulation, but training a single generalist policy for heterogeneous robot embodiments remains an open problem. Existing methods have two main limitations. First, they underuse dynamics priors shared across diverse visual and interaction data, limiting cross-embodiment transfer. Second, they require extensive manual preprocessing to convert embodiment-specific actions into a common format. To overcome these limitations, we propose DyPES-VLA, a cross-embodiment VLA that learns shared Dynamics Priors and Embodiment-Specific control. First, we learn shared dynamics priors by training the vision-language model (VLM) with a future-prediction objective on cross-embodiment data, driving the shared query representation to capture object motion, contact, and interaction-induced scene changes. Second, an embodiment-specific Mixture-of-Experts (MoE) action head translates these shared dynamics priors into executable controls directly in each embodiment's native action space, without manually pre-aligning heterogeneous actions into a common format. This head shares attention layers to capture common temporal action structures, while its embodiment-specific feed-forward experts resolve the unique kinematic constraints and control semantics of distinct embodiments. As a generalist policy, our \\ourmethod achieves state-of-the-art performance across simulation and real-world evaluations, reaching 98.0% success on LIBERO, 59.25% on RoboCasa-GR1, and 89.02% on RoboTwin~2.0.",
-          "Authors": [
-            "Junfeng Li",
-            "Junjie He",
-            "Zhide Zhong",
-            "Yangyang Zheng",
-            "Pingyue Sheng",
-            "Jiayu Dong",
-            "Ruixin Li",
-            "Haodong Yan",
-            "Jiaguan Zhu",
-            "Tianran Zhang",
-            "Runze Yu",
-            "Wen Chen",
-            "Liuqing Yang",
-            "Yuxiang Gao",
-            "Haoang Li"
-          ],
-          "Link": "http://arxiv.org/abs/2608.06374v1",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-08-06T17:59:20Z",
-          "Directions": [
-            "VLA"
-          ]
-        },
-        {
-          "Title": "Reinforcing Action Policies by Prophesying",
-          "Abstract": "Vision-Language-Action (VLA) policies excel in aligning language, perception, and robot control. However, most VLAs are trained purely by imitation, which overfits to demonstrations, and is brittle under distribution shift. Reinforcement learning (RL) directly optimizes task reward and thus addresses this misalignment, but real-robot interaction is expensive and conventional simulators are hard to engineer and transfer. We address both data efficiency and optimization stability in VLA post-training via a learned world model and an RL procedure tailored to flow-based action heads. Specifically, we first introduce Prophet, a unified action-to-video robot world model pretrained on large-scale, heterogeneous robot data to learn reusable action-outcome dynamics and then few-shot adapted to new robots, objects, and environments, yielding a rollout-ready simulator. Upon Prophet, we reinforce action policies with our proposed FlowScale, which couples Flow-GRPO with intrinsic stepwise reweighting to stabilize gradients. Together, our solution provides a practical, data- and compute-efficient path to VLA post-training. Experiments show 5-17% success gains on public benchmarks and 24-30% on real robots across diverse VLA backbones.",
-          "Authors": [
-            "Jiahui Zhang",
-            "Ze Huang",
-            "Chun Gu",
-            "Zipei Ma",
-            "Li Zhang"
-          ],
-          "Link": "http://arxiv.org/abs/2511.20633v2",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "https://LogosRoboticsGroup.github.io/ProphRL",
-          "Date": "2026-08-06T15:13:22Z",
-          "Directions": [
-            "VLA"
-          ]
-        },
-        {
-          "Title": "Beyond Flat Policies: Hierarchical Post-Training for Embodied Agents in Robotic Manipulation",
-          "Abstract": "Vision-language-action (VLA) models have demonstrated remarkable capabilities in robotic manipulation by leveraging pretrained vision-language models. However, existing post-training methods predominantly optimize VLA models as flat policies, making it difficult to explicitly model task progression and perform robust long-horizon manipulation. Although hierarchical approaches introduce task decomposition, they mainly rely on supervised learning from offline demonstrations and cannot effectively improve execution through online interaction. To address this limitation, we propose Hierarchical Robotic Control (HiRoC), a hierarchical post-training framework that decouples high-level task planning from low-level action execution. The planner decomposes complex tasks into executable subgoals to provide explicit semantic guidance, while the executor continuously improves subgoal-conditioned action generation through reinforcement learning. To enable effective collaboration between the two modules, we further align the executor with planner-generated subgoals before reinforcement learning, mitigating the distribution misalignment between planning and execution. Extensive experiments across diverse robotic manipulation benchmarks demonstrate that HiRoC consistently outperforms strong baselines. Comprehensive analyses further validate the effectiveness of hierarchical post-training and the contribution of each key component.",
-          "Authors": [
-            "He Kong",
-            "Zengjue Chen",
-            "Qi Wang",
-            "Qianli Xing",
-            "Runliang Niu",
-            "Peidong Liu",
-            "Jiawei Li",
-            "Shiqi Wang",
-            "Yi Chang"
-          ],
-          "Link": "http://arxiv.org/abs/2608.05999v1",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-08-06T13:07:56Z",
-          "Directions": [
-            "VLA"
-          ]
-        },
-        {
-          "Title": "SkillMemo: Expert-guided Skill Memory Framework for Compositional Embodied Manipulation",
-          "Abstract": "Embodied visuomotor models, including Diffusion Policy (DP) and Vision-Language-Action (VLA) models, have demonstrated promising performance on robotic manipulation benchmarks. However, their potential remains fundamentally constrained by the scarcity of large-scale embodied trajectory datasets, leading to insufficient compositional generalization in out-of-distribution (OOD) scenarios with limited capability to capture reusable skill structures. To address this limitation, we propose Skill-Based Memory (SkillMemo) framework that implicitly decomposes long-horizon demonstrations into latent atomic skills and integrates skill-level features into a dynamic episodic memory bank for solving compositional tasks. Specifically, we first introduce an expert-guided trajectory segmentation module built upon a Mixture-of-Experts (MoE) architecture, which implicitly partitions trajectories into distinct skill primitives represented by learned gating coefficients. We further design a skill-level episodic memory architecture that stores compact skill representations as retrievable key-value pairs. During inference, the memory bank retrieves the most relevant skill primitives which are subsequently fused with the model's current gating distribution, providing a robust contextual prior to refine action predictions. Extensive experiments on the simulation benchmark and real-world manipulation tasks demonstrate that SkillMemo consistently enhances both DP and VLA backbones, achieving state-of-the-art performance and outperforming $π_{0.5}$, while exhibiting strong compositional generalization to unseen task configurations.",
-          "Authors": [
-            "Changyuan Wang",
-            "Chubin Zhang",
-            "Zhenyu Wu",
-            "Runhao Li",
-            "Angyuan Ma",
-            "Ke Chao",
-            "Yinan Liang",
-            "Xiuwei Xu",
-            "Ziwei Wang",
-            "Yansong Tang",
-            "Jiwen Lu"
-          ],
-          "Link": "http://arxiv.org/abs/2608.05970v1",
-          "Tags": [
-            "cs.RO",
-            "cs.AI"
-          ],
-          "Comment": "",
-          "Date": "2026-08-06T12:46:13Z",
-          "Directions": [
-            "VLA"
-          ]
-        },
-        {
-          "Title": "DFM-VLA: Iterative Action Refinement for Robot Manipulation via Discrete Flow Matching",
-          "Abstract": "Vision-Language-Action (VLA) models that encode actions using a discrete tokenization scheme have been widely adopted for robotic manipulation, but existing decoding paradigms remain fundamentally limited. Whether actions are decoded sequentially by autoregressive VLAs or in parallel by discrete diffusion VLAs, once a token is generated, it is typically fixed and cannot be revised in subsequent iterations. Consequently, early token errors cannot be effectively corrected later. We propose DFM-VLA, a discrete flow matching VLA that iteratively refines action tokens. DFM-VLA models a token-level probability velocity field that dynamically updates the full action sequence across refinement iterations. We investigate two approaches to constructing the velocity field: an auxiliary velocity-head formulation and an embedding-guided formulation. To further improve prediction accuracy, we introduce a metric-aligned action tokenizer (MAAT) tailored to the coarse-to-fine nature of DFM, together with a two-stage decoding strategy. Extensive experiments on CALVIN, LIBERO, LIBERO-Plus, and real-world manipulation tasks demonstrate the effectiveness of our approach. Our project is available at https://chris1220313648.github.io/DFM-VLA/.",
-          "Authors": [
-            "Jiayi Chen",
-            "Wenxuan Song",
-            "Jiaxin Fang",
-            "Ruiqing Yin",
-            "Jingbo Wang",
-            "Shuai Chen",
-            "Jieyuan Pei",
-            "Yikai Qin",
-            "Feifan Chen",
-            "Haodong Yan",
-            "Zhide Zhong",
-            "Wen Chen",
-            "Yan Wang",
-            "Yuxiang Gao",
-            "Haoang Li"
-          ],
-          "Link": "http://arxiv.org/abs/2603.26320v4",
-          "Tags": [
-            "cs.RO",
-            "cs.CV"
-          ],
-          "Comment": "",
-          "Date": "2026-08-06T10:15:07Z",
-          "Directions": [
-            "VLA"
-          ]
-        },
-        {
-          "Title": "In-Context VLA: Endowing Vision-Language-Action Models with Language via In-Context Post-Training and Agentic Tool Use",
-          "Abstract": "Vision-Language-Action (VLA) models have become the dominant recipe for generalist manipulation, yet they are almost universally trained by behavior cloning: a policy imitates expert action chunks conditioned on a static image and a fixed instruction. A natural remedy is to inject explicit reasoning through textual chain-of-thought (CoT). We show, both empirically and analytically, that free-form textual CoT degrades low-level control: the reasoning it produces is ungrounded, its latency breaks closed-loop timing, and, crucially, the reasoning and action tokens are optimized against conflicting objectives so that the policy learns to narrate rather than to act. We argue that what a VLA needs is not the ability to generate language, but the ability to consume grounded language. To this end we introduce \\textbf{\\ourmethod{}}, a framework that endows a VLA with language competence through (i) in-context post-training, in which perceptual evidence is injected as structured context and the model is supervised only on actions, and (ii) an agentic tool-use interface, in which the policy queries open-vocabulary detectors, monocular depth, and a vision--language model to actively acquire task-relevant information. Rather than emitting a single templated caption, our data engine produces diverse, paraphrased, and evidence-conditioned spatial descriptions, so that the policy learns to interpret language it has never seen verbatim. Across the RoboCasa-GR1, SimplerEnv, and LIBERO simulation benchmarks, together with 8 real-world robot manipulation tasks, our method consistently achieves SOTA results in both performance and efficiency when compared with CoT-based approaches under matched configurations.",
-          "Authors": [
-            "Jiarui Yang",
-            "Wen Huang",
-            "Jiale Zhang",
-            "Maowei Hu",
-            "Hang Guo"
-          ],
-          "Link": "http://arxiv.org/abs/2608.05738v1",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-08-06T08:21:02Z",
-          "Directions": [
-            "VLA"
-          ]
         }
       ]
     },
@@ -1136,6 +1134,102 @@
       "label": "World Action Model (WAM)",
       "abbrev": "WAM",
       "papers": [
+        {
+          "Title": "4D-WAM: Infusing Spatiotemporal Awareness into World Action Models through Trajectory Fields",
+          "Abstract": "Building on recent advances in world models, World Action Models (WAMs) jointly model video prediction and action generation. However, they typically represent videos in 2D pixel space, creating a representation gap with 3D space in which robotic actions are executed. Recent 3D approaches introduce 3D information, but fail to fully exploit the dynamics of 3D structures. In this work, we propose 4D-WAM, a model-agnostic training strategy that injects spatiotemporal knowledge from 3D trajectory fields into WAMs through representation alignment. To this end, we introduce two complementary objectives: 1) motion alignment, which aligns temporal feature variations across adjacent frames and encourages the model to build local 4D awareness during training, and 2) destination alignment, which guides the model to infer the final destination from the source frame by minimizing the gap between their attention-like similarity distributions. Together, these objectives provide both local motion supervision and long-horizon goal guidance, enabling WAMs to learn trajectory-level spatiotemporal representations. Extensive in-distribution and out-of-distribution experiments across different base models demonstrate the model's improvements in spatial understanding, execution precision, robustness, generalization, and versatility.",
+          "Authors": [
+            "Lishan Yang",
+            "Wenxuan Song",
+            "Xi Wang",
+            "Pingyue Sheng",
+            "Zheng Fang",
+            "Ziyang Zhou",
+            "Junjie He",
+            "Haodong Yan",
+            "Jiayi Chen",
+            "Nan Sun",
+            "Qiao Sun",
+            "Pengwei Wang",
+            "Lingqiao Liu",
+            "Yan Wang",
+            "Yuxiang Gao",
+            "Feras Dayoub",
+            "Haoang Li"
+          ],
+          "Link": "http://arxiv.org/abs/2608.08023v2",
+          "Tags": [
+            "cs.RO"
+          ],
+          "Comment": "",
+          "Date": "2026-08-12T13:47:13Z",
+          "Directions": [
+            "WAM",
+            "WM"
+          ]
+        },
+        {
+          "Title": "From World Models to World Action Models: A Concise Tutorial for Robotics",
+          "Abstract": "Rather than providing an exhaustive survey, this paper presents a concise tutorial on world models and world action models for robotics. After reading the tutorial, readers should have a clear understanding of what constitutes a \"world\", how world models and world action models are defined, and what roles they play within robotic AI systems. The tutorial also develops a unified perspective for comparing representative approaches, such as World Labs' spatial intelligence models, Yann LeCun's JEPA framework, and NVIDIA's Cosmos platform, and clarifies how these models differ in their representations, predictive capabilities, and interaction mechanisms.",
+          "Authors": [
+            "Xiaoxiong Zhang",
+            "Xiong Zeng",
+            "Wei Zhang"
+          ],
+          "Link": "http://arxiv.org/abs/2607.00836v5",
+          "Tags": [
+            "cs.RO",
+            "cs.AI",
+            "eess.SY"
+          ],
+          "Comment": "Project page: https://clearlab-sustech.github.io/WorldModelSurvey/",
+          "Date": "2026-08-12T06:05:26Z",
+          "Directions": [
+            "WAM",
+            "WM"
+          ]
+        },
+        {
+          "Title": "Foresight Without Seeing: Latent Futures for World Action Models",
+          "Abstract": "World Action Models (WAMs) couple future visual prediction with robot action generation, enabling policies to model how the physical world evolves during interaction. Existing WAMs differ in how predictive dynamics are exposed to the action pathway. Explicit-future WAMs provide direct access to predicted scene evolution, but incur substantial inference costs from iterative video denoising. In contrast, direct-policy WAMs efficiently predict actions from the current observation but lack an explicit inference-time interface for exposing predictive dynamics to the Action DiT. To bridge this gap, we propose ForeWAM, a dynamics-conditioned direct-policy WAM that provides predictive context for action generation without decoding future videos. At its core, Future-KV performs a single Video DiT prefill over the current visual latent and stochastic future slots, and reuses the resulting layer-wise key-value states throughout action denoising. We further introduce dynamics registers supervised by a frozen latent action teacher, encouraging the implicit future states to capture interaction-induced transitions such as object motion, contact changes, and task progress. Ground-truth future observations and the teacher are used only during training; deployment requires neither and performs no future video generation. Without embodied robot data pretraining, the standard and accelerated variants of ForeWAM achieve average success rates of 96.7% and 96.9% on LIBERO, respectively. The standard variant further achieves 61.6% success on LIBERO-Plus. These results demonstrate that direct-policy WAMs can retain efficient action prediction while exposing predictive dynamics to the action pathway without explicitly generating future observations.",
+          "Authors": [
+            "Jiakai Huang",
+            "Zhongbo Wu",
+            "Zheng Zhang",
+            "Zihan Wang",
+            "Shan You",
+            "Tao Huang"
+          ],
+          "Link": "http://arxiv.org/abs/2608.11605v1",
+          "Tags": [
+            "cs.AI"
+          ],
+          "Comment": "12 pages, 3 figures",
+          "Date": "2026-08-12T03:27:43Z",
+          "Directions": [
+            "WAM"
+          ]
+        },
+        {
+          "Title": "Keep the Future, Drop the Rollout: RIFT for World Action Models",
+          "Abstract": "World action models (WAMs) condition robot actions on predicted futures, but iterative video rollout increases deployment latency. We ask whether action generation requires the evolving rollout trajectory or only its future representation. Across four WAMs on all 40 LIBERO tasks, paired closed-loop interventions show that masking or reassigning future-cache values changes execution and reduces success, indicating sensitivity to future values and their assigned positions. For Joint and Cosmos-2, however, replaying one fixed final-clean key/value (K/V) cache nearly preserves unmodified execution, with $1.7$ to $1.9$~cm end-effector average displacement error and $97.9\\%$ to $98.2\\%$ success. This separates cache consumption from production: these models can reuse a fixed cache but still require iterative rollout to construct it. We therefore propose RIFT (\\emph{Rollout-free Imagination via Future Tokens}), which uses learned anticipation tokens to construct a complete future K/V cache in one backbone pass while retaining the original future-read interface. On LIBERO, RIFT achieves $98.8\\%$ success, close to rollout-based Joint, IDM, and LingBot-VA at $98.4\\%$ to $98.6\\%$, while reducing action-chunk latency by $68.2\\%$ to $89.1\\%$. On RoboTwin~2.0, RIFT reaches $92.9/92.6\\%$ on clean/randomized scenes, the highest observed among the evaluated methods. These results support rollout-free future conditioning without iterative video generation at deployment.",
+          "Authors": [
+            "Chushan Zhang",
+            "Jinguang Tong",
+            "Xuesong Li",
+            "Yikai Wang",
+            "Hongdong Li"
+          ],
+          "Link": "http://arxiv.org/abs/2608.11521v1",
+          "Tags": [
+            "cs.RO",
+            "cs.AI"
+          ],
+          "Comment": "",
+          "Date": "2026-08-12T00:17:30Z",
+          "Directions": [
+            "WAM"
+          ]
+        },
         {
           "Title": "Surgical WAM: A World-Action Model for Data-Efficient Surgical Robot Learning",
           "Abstract": "Learning reliable surgical manipulation policies is bottlenecked by the scarcity of action-labeled demonstrations: teleoperated surgical robot (e.g., dVRK) trajectories with synchronized kinematics are costly to collect, while surgical tasks demand precise contact handling, long-horizon reasoning, and bimanual coordination. Endoscopic video is comparatively inexpensive and abundant relative to synchronized video--kinematics trajectories, and a natural way to exploit it is to learn world models of surgical scenes. However, existing surgical world models use video primarily for simulation or policy evaluation, and rarely translate the learned dynamics into closed-loop control. This gap raises our central question: under a fixed budget of action-labeled demonstrations, does action-free video pretraining improve closed-loop surgical manipulation? To answer it, we introduce the Surgical World-Action Model (Surgical WAM), a unified generative model built on Cosmos Policy that jointly predicts future endoscopic observations and executable surgical robot action chunks. Surgical WAM first learns surgical visual dynamics from action-free video and is then fine-tuned on the fixed action-labeled budget; at deployment, it acts as a closed-loop, receding-horizon controller that executes a short prefix of each predicted action chunk and replans from the resulting observation. On a suite of four simulated surgical manipulation tasks, video pretraining improves the average success rate from 63.5% to 77.8%, including an absolute gain of 20 percentage points on PegTransfer, with the largest improvements on contact-rich and bimanual tasks. These results demonstrate that action-free video provides transferable visual dynamics priors for learning surgical robot control with limited action supervision, positioning data-efficient video pretraining as a practical path toward scaling up surgical robot learning.",
@@ -1396,38 +1490,6 @@
           "Date": "2026-08-09T08:02:49Z",
           "Directions": [
             "WAM"
-          ]
-        },
-        {
-          "Title": "4D-WAM: Infusing Spatiotemporal Awareness into World Action Models through Trajectory Fields",
-          "Abstract": "Building on recent advances in world models, World Action Models (WAMs) jointly model video prediction and action generation. However, they typically represent videos in 2D pixel space, creating a representation gap with 3D space in which robotic actions are executed. Recent 3D approaches introduce 3D information, but fail to fully exploit the dynamics of 3D structures. In this work, we propose 4D-WAM, a model-agnostic training strategy that injects spatiotemporal knowledge from 3D trajectory fields into WAMs through representation alignment. To this end, we introduce two complementary objectives: 1) motion alignment, which aligns temporal feature variations across adjacent frames and encourages the model to build local 4D awareness during training, and 2) destination alignment, which guides the model to infer the final destination from the source frame by minimizing the gap between their attention-like similarity distributions. Together, these objectives provide both local motion supervision and long-horizon goal guidance, enabling WAMs to learn trajectory-level spatiotemporal representations. Extensive in-distribution and out-of-distribution experiments across different base models demonstrate the model's improvements in spatial understanding, execution precision, robustness, generalization, and versatility.",
-          "Authors": [
-            "Lishan Yang",
-            "Wenxuan Song",
-            "Xi Wang",
-            "Pingyue Sheng",
-            "Zheng Fang",
-            "Ziyang Zhou",
-            "Junjie He",
-            "Haodong Yan",
-            "Jiayi Chen",
-            "Nan Sun",
-            "Qiao Sun",
-            "Lingqiao Liu",
-            "Yan Wang",
-            "Yuxiang Gao",
-            "Feras Dayoub",
-            "Haoang Li"
-          ],
-          "Link": "http://arxiv.org/abs/2608.08023v1",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-08-08T09:11:05Z",
-          "Directions": [
-            "WAM",
-            "WM"
           ]
         },
         {
@@ -2054,101 +2116,6 @@
           "Directions": [
             "WAM"
           ]
-        },
-        {
-          "Title": "LeapBot-WA: World-Anchor Action Models via Predictive Latent Alignments",
-          "Abstract": "World Action Models (WAMs) have emerged as a powerful paradigm for embodied intelligence, yet the prevailing reliance on pixel-level video generation creates a fundamental bottleneck. Forcing models to reconstruct task-irrelevant visual details dissipates representational capacity and renders policies vulnerable to visual distractors. In this paper, we propose LeapBot-WA, which establishes a novel Predictive-Latent paradigm for WAMs by operationalizing the Joint-Embedding Predictive Architecture (JEPA) as a World-Anchor. Departing from the traditional reliance on visual synthesis, LeapBot-WA shifts the core of world modeling to Predictive Semantic Alignment, extracting abstract physical dynamics directly within a latent foundation space. To bridge the modality gap between non-Gaussian predictive features and diffusion priors, we introduce the Isotropic Semantic Autoencoder (ISAE), which reshapes the anchor's latent space into a diffusion-friendly manifold to prevent off-manifold drift. Furthermore, we design an Asymmetric Mixture-of-Transformers (MoT) architecture. During training, an Anchor Diffusion Transformer acts as a privileged dynamics expert to guide the Action Diffusion Transformer; at inference, this heavy dynamics branch is pruned, enabling zero-overhead execution. LeapBot-WA achieves state-of-the-art performance among predictive models on LIBERO and matches top-tier generative WAMs on RoboTwin 2.0 without requiring large-scale trajectory pre-training. It further demonstrates superior zero-shot robustness to unseen environments and successful real-world transfer, establishing a highly efficient and robust latent-centric paradigm for scalable robotic control. Code: https://github.com/LeapWM/leapbot-wa.",
-          "Authors": [
-            "Pei Liu",
-            "Nan Zheng",
-            "Lang Zhang",
-            "Daojie Peng",
-            "Yanan Zhang",
-            "Feilong Kong",
-            "Mingyue Feng",
-            "Jiachao Liu",
-            "Yaonong Wang",
-            "Qifeng Chen",
-            "Jun Ma"
-          ],
-          "Link": "http://arxiv.org/abs/2607.23969v2",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-07-30T13:06:27Z",
-          "Directions": [
-            "WAM"
-          ]
-        },
-        {
-          "Title": "World Action Planner: Generalizable Decision-Making with Action-Conditioned World Models",
-          "Abstract": "Building generalizable agents for diverse applications remains a fundamental challenge. While imitation learning-based policies succeed in specific training environments, they often fail to generalize to novel scenes and tasks. In this work, we propose World Action Planner, a robot planning system that leverages the reasoning capabilities of Vision-Language Models (VLMs) and the physical grounding of a multi-task pose-image conditioned world model. Our system enables an agent to propose initial action plans and iteratively refine them via optimization and search, reasoning over imagined world model rollouts. We demonstrate that our approach achieves superior performance across compositional tasks, new layouts, and zero-shot generalization scenarios, significantly outperforming state-of-the-art end-to-end policy models such as VLAs and WAMs. Project website at worldactionplanner.github.io",
-          "Authors": [
-            "Xiangcheng Zhang",
-            "Yilun Du"
-          ],
-          "Link": "http://arxiv.org/abs/2607.27599v1",
-          "Tags": [
-            "cs.AI",
-            "cs.RO"
-          ],
-          "Comment": "Project page at worldactionplanner.github.io",
-          "Date": "2026-07-30T02:41:52Z",
-          "Directions": [
-            "WAM"
-          ]
-        },
-        {
-          "Title": "Do World Action Models Generalize Better than VLAs? A Robustness Study",
-          "Abstract": "Robot action planning in the real world is challenging as it requires not only understanding the current state of the environment but also predicting how it will evolve in response to actions. Vision-language-action (VLA), which repurpose large-scale vision-language models for robot action generation using action experts, have achieved notable success across a variety of robotic tasks. Nevertheless, their performance remains constrained by the scope of their training data, exhibiting limited generalization to unseen scenarios and vulnerability to diverse contextual perturbations. More recently, world models have been revisited as an alternative to VLAs. These models, referred to as world action models (WAMs), are built upon world models that are trained on large corpora of video data to predict future states. With minor adaptations, their latent representation can be decoded into robot actions. It has been suggested that their explicit dynamic prediction capacity, combined with spatiotemporal priors acquired from web-scale video pretraining, enables WAMs to generalize more effectively than VLAs. In this paper, we conduct a comparative study of prominent state-of-the-art VLA policies and recently released WAMs. We evaluate their performance on the LIBERO-Plus and RoboTwin 2.0-Plus benchmarks under various visual and language perturbations. Our results show that WAMs achieve strong robustness, with LingBot-VA reaching 74.2% success rate on RoboTwin 2.0-Plus and Cosmos-Policy achieving 82.2% on LIBERO-Plus. While VLAs such as $π_{0.5}$ can achieve comparable robustness on certain tasks, they typically require extensive training with diverse robotic datasets and varied learning objectives. The evaluation code for the RoboTwin2.0-Plus benchmark is available at: https://robot-robustness.github.io/RoboTwin2.0-Plus/.",
-          "Authors": [
-            "Zhanguang Zhang",
-            "Zhiyuan Li",
-            "Behnam Rahmati",
-            "Rui Heng Yang",
-            "Yintao Ma",
-            "Amir Rasouli",
-            "Sajjad Pakdamansavoji",
-            "Yangzheng Wu",
-            "Lingfeng Zhang",
-            "Tongtong Cao",
-            "Feng Wen",
-            "Xinyu Wang",
-            "Xingyue Quan",
-            "Yingxue Zhang"
-          ],
-          "Link": "http://arxiv.org/abs/2603.22078v5",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-07-30T02:24:57Z",
-          "Directions": [
-            "WAM"
-          ]
-        },
-        {
-          "Title": "DC-WAM: Dynamic-Centric Visual Supervision and Reasoning for World-Action Models",
-          "Abstract": "World-Action Models (WAMs) augment robot policies with future visual prediction, but it remains unclear what the visual modality should learn for control. While photorealistic future prediction provides dense supervision, it also incurs substantial computation and can allocate capacity to texture, illumination, and background variations that are only weakly related to action selection. Recent efficient WAM variants suggest that the main benefit of the video branch may not lie in the rendered future itself, but in the control-relevant visual representations induced during training. In this work, we revisit future video prediction from a dynamic-centric perspective and ask whether an existing RGB-based WAM can be redirected from appearance-dominated reconstruction toward interaction-induced visual dynamics without introducing additional modality-specific predictions or online inputs at deployment. We propose DC-WAM, a dynamic-centric WAM framework that redistributes supervision and computation in the RGB video branch. At the supervision level, DC-WAM combines temporal-difference flow matching with trajectory-guided weighting, emphasizing dense temporal changes and localized regions where the gripper, manipulated objects, and contact areas move. At the reasoning level, DynaRoute predicts token-wise dynamic relevance and converts it into an attention bias, guiding the model toward control-relevant future tokens. Experiments in simulation and on real-world manipulation tasks show that DC-WAM consistently improves policy performance, especially under out-of-distribution perturbations in lighting, object appearance, and background texture.",
-          "Authors": [
-            "Haoyuan Ji",
-            "Lingxiang Fan",
-            "Shang Su",
-            "Yinqiao Lu",
-            "Mengkai Shi",
-            "Jun Gao",
-            "Shuo Feng"
-          ],
-          "Link": "http://arxiv.org/abs/2607.25918v1",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-07-28T16:08:50Z",
-          "Directions": [
-            "WAM"
-          ]
         }
       ]
     },
@@ -2164,12 +2131,199 @@
             "Randall Balestriero",
             "Morgan Levine"
           ],
-          "Link": "http://arxiv.org/abs/2608.11174v1",
+          "Link": "http://arxiv.org/abs/2608.11174v2",
           "Tags": [
             "cs.RO"
           ],
           "Comment": "",
-          "Date": "2026-08-11T17:34:10Z",
+          "Date": "2026-08-12T16:51:58Z",
+          "Directions": [
+            "WM"
+          ]
+        },
+        {
+          "Title": "Better Slots, Better Worlds: Representation Quality & Robustness in Object-Centric World Models",
+          "Abstract": "Learning world models from offline trajectories enables agents to accomplish different tasks through planning. Object-centric (OC) representations, which decompose a scene into a set of slots that bind to its objects, have been proposed as an inductive bias for world models that are more sample-efficient and generalize better. Yet prior object-centric world models (OCWMs) take the slot encoder as given and evaluate only in-distribution, leaving open whether the object-centric bias actually delivers for planning and what within the OCWM drives it. We conduct a controlled study of OCWMs for visual model-predictive control along two axes: object-centric representation quality and generalization under distribution shift relative to scene-centric models. We find that (i) planning success correlates positively with unsupervised slot-quality metrics (FG-ARI, mBO), though the gains saturate at high slot quality; (ii) with well-bound slots, the auxiliary proprioception inputs and masking inductive bias that prior methods relied on become unnecessary; and (iii) under unseen distribution shifts, the OCWM with well-bound slots is more robust overall than the end-to-end trained scene-centric LeWM, while DINO-WM, built on similar frozen pretrained features, remains competitive -- pointing to pretrained features as a key contributor to robustness.",
+          "Authors": [
+            "Shukrullo Nazirjonov",
+            "Sai Prasanna",
+            "Anna Manasyan",
+            "Georg Martius"
+          ],
+          "Link": "http://arxiv.org/abs/2608.12078v1",
+          "Tags": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+          ],
+          "Comment": "Published at Model-Based RL in the Era of Generative World Models Workshop at RLC 2026",
+          "Date": "2026-08-12T14:02:36Z",
+          "Directions": [
+            "WM"
+          ]
+        },
+        {
+          "Title": "Bootstrap Theory of Representational Emergence: Explanatory Insufficiency as a Driver of Representation Learning and World Models",
+          "Abstract": "Representation learning is central to modern machine learning, yet most research focuses on optimizing representations after a representational framework has been selected. Less attention is given to when a new representational level becomes necessary. We introduce the Bootstrap Theory of Representational Emergence (TBER), a conceptual framework in which persistent explanatory insufficiency acts as a signal for representational transition. A representation may remain descriptively useful while becoming unable to make relevant observations, relations, transformations, or organizational properties intelligible. TBER describes a recursive five-stage process: stabilized observation, anomaly detection, recognition of explanatory insufficiency, representational emergence, and provisional stabilization. The revised framework distinguishes emergence from validation: candidate representations may require problem re-representation, discriminating tests, and representational selection before stabilization. TBER concerns transitions between scientific or computational representations rather than transitions within the physical systems being observed. It provides a meta-representational framework applicable to representation learning, latent spaces, foundation models, world models, adaptive systems, and scientific discovery. A possible implication for future AI is the development of systems capable not only of learning representations, but also of detecting their explanatory limits and initiating, testing, and selecting alternative representational frameworks.",
+          "Authors": [
+            "Jacques Raynal",
+            "Pierre Slangen",
+            "Elsa Raynal",
+            "Jacques Margerit"
+          ],
+          "Link": "http://arxiv.org/abs/2606.07303v3",
+          "Tags": [
+            "cs.LG"
+          ],
+          "Comment": "27 pages, 25 references, no figures or tables. Conceptual framework on representational emergence and explanatory insufficiency, with implications for representation learning, world models, autonomous AI, and scientific discovery",
+          "Date": "2026-08-12T13:11:37Z",
+          "Directions": [
+            "WM"
+          ]
+        },
+        {
+          "Title": "Multi-Agent Embodied Autonomous Driving: From V2X Information Exchange to Shared World Models",
+          "Abstract": "Autonomous driving is shifting from isolated vehicle intelligence toward multi-agent embodied systems that share perception, infer intent, and coordinate action under uncertainty. This survey examines this transition through the lens of Shared World Models (SWMs): predictive cross-agent representations maintained across vehicles, infrastructure, and other traffic participants. We review approximately 400 publications covering vehicle-to-everything (V2X) communication, collaborative perception, inter-agent cognition, cooperative planning, end-to-end cooperative driving, and simulation and data engines for closed-loop validation. The organizing question is how exchanged observations become aligned state, intent-aware interaction, and coordinated downstream action. Across the surveyed literature, evaluation remains concentrated in simulation, curated benchmarks, and offline protocols. Foundation-model-based coordination also lacks verifiable real-time safety guarantees in open traffic. These gaps motivate key research priorities for multi-agent embodied autonomous driving (MAEAD): verifiable shared-state maintenance, robust intent and plan alignment, and safe coordinated action under communication and computing constraints in real-world deployment. We maintain an open-source project to continuously track the latest developments at https://github.com/dl-m9/Multi-Agent-Embodied-Autonomous-Driving.",
+          "Authors": [
+            "Senkang Hu",
+            "Zhengru Fang",
+            "Yihang Tao",
+            "Zihan Fang",
+            "Yiqin Deng",
+            "Yuguang Fang"
+          ],
+          "Link": "http://arxiv.org/abs/2606.13840v2",
+          "Tags": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "Comment": "",
+          "Date": "2026-08-12T11:55:43Z",
+          "Directions": [
+            "WM"
+          ]
+        },
+        {
+          "Title": "Towards Human Motion World Models via Executable Behaviour Representations",
+          "Abstract": "Human motion world models should capture motion's intentionality by being executable: adaptable to different actions and capable of assessing motion quality. To achieve this, we introduce a domain-specific language ExAct that represents human motions as underspecified programs that can be compiled to a reward model for zero-shot policy inference. By leveraging the compositional nature of ExAct programs, we combine individual policies into executable behaviour representations. We evaluate the utility of the proposed approach by analysing human motion capture for the tasks of human action segmentation and human action anomaly detection. Our results suggest that the improvement in data efficiency and the capture of intuitive relationships between human actions are better than those of task-specific models.",
+          "Authors": [
+            "Rimvydas Rubavicius",
+            "Manisha Dubey",
+            "N. Siddharth",
+            "Subramanian Ramamoorthy"
+          ],
+          "Link": "http://arxiv.org/abs/2604.18064v2",
+          "Tags": [
+            "cs.AI"
+          ],
+          "Comment": "Accepted in ECCV2026 Workshop",
+          "Date": "2026-08-12T10:14:38Z",
+          "Directions": [
+            "WM"
+          ]
+        },
+        {
+          "Title": "ComBodied Agents: a New Paradigm of Human-Centric Agentic AI",
+          "Abstract": "After an older adult misses a medication dose, a software agent can send another reminder and an embodied agent can bring the medication. Yet neither explains whether the person forgot, is confused, has side effects, or deliberately refused, nor what support is appropriate. This reveals a structural gap in Agentic AI: Digital Agents primarily transform software states, while Embodied Agents transform physical states; neither makes a person's evolving state and agency the primary object of modeling, intervention, and evaluation. We introduce Combodied Agents, a human-centered paradigm that perceives, models, predicts, and supports individual human-state trajectories over time, using software tools, sensors, wearables, robots, and human services as action channels rather than end goals. We unify fragmented capabilities across personal assistants, health agents, AI companions, and adaptive human--AI systems into a closed loop: event-based multimodal perception reconstructs meaningful personal events; longitudinal, correctable memory provides temporal context; Personal World Models estimate future personal states and outcomes under alternative decisions and interventions; and an admissible intervention policy selects proportionate support under consent, uncertainty, safety, reversibility, and user control. Feedback from the person and environment updates the loop. Rather than requiring an exhaustive Human Digital Twin, the framework uses purpose-bounded, uncertainty-aware, user-correctable representations. We organize the design space by human-state targets, relational contexts, and agent roles, and propose scenario-centered evaluation, agency-preservation metrics, benchmark requirements, edge-native personal models, and governance directions. Combodied Agents shift Agentic AI from external task completion toward sustained human benefit.",
+          "Authors": [
+            "Qianggang Ding",
+            "Xingyao Wang",
+            "Rui Feng",
+            "Zhibin Wang",
+            "Feixiang Yao",
+            "Kelong Mao",
+            "Hao Sun",
+            "Zhiyao Luo",
+            "Jiankai Tang",
+            "Lei Li",
+            "Jiadong Guo",
+            "Minheng Ni",
+            "Weicong Lin",
+            "Chenxi Yang",
+            "Hongxiang Gao",
+            "Zhenghua Chen",
+            "Yang Bai",
+            "Min Wu",
+            "Jun Cheng",
+            "Huazhu Fu",
+            "Dacheng Tao",
+            "Bang Liu"
+          ],
+          "Link": "http://arxiv.org/abs/2608.10915v2",
+          "Tags": [
+            "cs.AI"
+          ],
+          "Comment": "38 pages, 6 figures, 10 tables",
+          "Date": "2026-08-12T09:22:00Z",
+          "Directions": [
+            "WM"
+          ]
+        },
+        {
+          "Title": "PBD-AG: Persistent Baseline-Delta Active Graphs with Uncertainty-Aware Inspection for Long-Horizon Service Robots",
+          "Abstract": "Long-horizon service robots require persistent world models that can be built autonomously in unseen environments and revised as task-relevant objects change. Existing methods rely on online mapping, which accumulates localization and observation errors, static scene representations that cannot capture persistent object changes, or holistic vision-language predictions that lack verifiable 3D geometric evidence. We present PBD-AG, a persistent baseline-delta active graph framework that decouples robot-verified stable fixtures from revisable dynamic object events. Under our framework, the robot autonomously bootstraps the structural baseline from onboard exploration and inspects discovered fixtures to ground hierarchical object beliefs. PBD-AG maintains reliability-weighted object states over geometry, semantics, identity, existence, and support relations, utilizing a geometric visibility gate to mitigate false deletions under occlusion. Inspection viewpoints are selected by a graph-conditioned policy that balances target coverage, travel cost, collision risk, and redundant observation. Simulation experiments in multiple environments and under controlled dynamic evaluation show higher aggregate coarse-fixture F1 than capability-matched controls, as well as stronger identity continuity and event recall. A qualitative physical-robot demonstration further illustrates integration with onboard sensing, providing a traceable world model for long-horizon robotic perception. The project page of PBD-AG is available at https://shuobao214.github.io/PBD-AG/",
+          "Authors": [
+            "Shuo Bao",
+            "Wei Dong",
+            "Shuyue Zhang",
+            "Ming Shang",
+            "Yuchen Huang",
+            "Han Yu",
+            "Chengjie Xu",
+            "Yiheng Bi",
+            "Kai Sun",
+            "Fuchun Sun",
+            "Xinzhou Wang"
+          ],
+          "Link": "http://arxiv.org/abs/2608.10449v2",
+          "Tags": [
+            "cs.RO"
+          ],
+          "Comment": "",
+          "Date": "2026-08-12T04:06:06Z",
+          "Directions": [
+            "WM"
+          ]
+        },
+        {
+          "Title": "Embodied intelligent industrial robotics: Framework and techniques",
+          "Abstract": "The combination of embodied intelligence and robots has great prospects and is becoming increasingly common. In order to work more efficiently, accurately, reliably, and safely in industrial scenarios, robots should have at least general knowledge, working-environment knowledge, and operating-object knowledge. These pose significant challenges to existing embodied intelligent robotics (EIR) techniques. Thus, this paper first briefly reviews the history of industrial robotics and analyzes the limitations of mainstream EIR frameworks. Then, a new knowledge-driven technical framework of embodied intelligent industrial robotics (EIIR) is proposed for various industrial environments. It has five modules: a world model, a high-level task planner, a low-level skill controller, a simulator, and a physical system. The development of techniques related to each module are also thoroughly reviewed, and recent progress regarding their adaption to industrial applications are discussed. A case study of real-world assembly system is given to demonstrate the newly proposed EIIR framework's applicability and potentiality. Finally, the key challenges that EIIR encounters in industrial scenarios are summarized and future research directions are suggested. The authors believe that EIIR technology is shaping the next generation of industrial robotics and EIIR-based industrial systems supply a new technological paradigm for intelligent manufacturing. It is expected that this review could serve as a valuable reference for scholars and engineers that are interested in industrial embodied intelligence. Together, scholars can use this research to drive their rapid advancement and application of EIIR techniques. The authors would continue to track and contribute new studies in the project page https://github.com/jackyzengl/EIIR",
+          "Authors": [
+            "Chaoran Zhang",
+            "Chenhao Zhang",
+            "Zhaobo Xu",
+            "Qinghongbing Xie",
+            "Jinliang Hou",
+            "Pingfa Feng",
+            "Long Zeng"
+          ],
+          "Link": "http://arxiv.org/abs/2505.09305v7",
+          "Tags": [
+            "cs.RO"
+          ],
+          "Comment": "70 pages, 13 figures. The associated project can be found at https://github.com/jackyzengl/EIIR",
+          "Date": "2026-08-12T03:20:16Z",
+          "Directions": [
+            "WM"
+          ]
+        },
+        {
+          "Title": "How Can Driving World Models Do Counterfactual Prediction?",
+          "Abstract": "Driving world models are often interpreted as counterfactual simulators for observed driving episodes: given a factual driving log, they are asked what would have happened under an alternative ego action. In this paper, we identify a fundamental mismatch between this goal and direct action-conditioned prediction. The direct prediction uses the shared history and the alternative action but not the factual continuation observed after that history. It can therefore generate a plausible future without preserving what actually happened in this episode. We formalize this gap using the causal recipe of abduction, action, and prediction and study it in a setting with a short time horizon, where the alternative ego action does not alter how surrounding agents evolve. To make the gap measurable, we construct a controlled simulation benchmark with factual outcomes and matched counterfactual outcomes. Across two representative world models, direct predictions fail to match the counterfactual ground truth, supporting our analysis. As a constructive check of this analysis, we introduce a deliberately simple, training-free pipeline that moves observed evidence into the counterfactual view and lets the frozen model complete what remains unknown. Even this simple construction raises the overall recovered fraction substantially and reduces perceptual distance to the matched counterfactual on both models. We hope this work draws attention to this gap and motivates better counterfactual prediction methods for driving world models.",
+          "Authors": [
+            "Jiaru Zhang",
+            "Can Cui",
+            "Yi Xu",
+            "Xin Ye",
+            "Ruqi Zhang",
+            "Ziran Wang"
+          ],
+          "Link": "http://arxiv.org/abs/2608.11601v1",
+          "Tags": [
+            "cs.CV"
+          ],
+          "Comment": "",
+          "Date": "2026-08-12T03:19:59Z",
           "Directions": [
             "WM"
           ]
@@ -2196,43 +2350,6 @@
           ],
           "Comment": "10 pages, 3 figures, ACM Multimedia 2026, egocentric video; 3D scene graph; temporal memory; graph retrieval; object-state reasoning; multimodal question answering",
           "Date": "2026-08-11T15:00:15Z",
-          "Directions": [
-            "WM"
-          ]
-        },
-        {
-          "Title": "ComBodied Agents: a New Paradigm of Human-Centric Agentic AI",
-          "Abstract": "After an older adult misses a medication dose, a software agent can send another reminder and an embodied agent can bring the medication. Yet neither explains whether the person forgot, is confused, has side effects, or deliberately refused, nor what support is appropriate. This reveals a structural gap in Agentic AI: Digital Agents primarily transform software states, while Embodied Agents transform physical states; neither makes a person's evolving state and agency the primary object of modeling, intervention, and evaluation. We introduce Combodied Agents, a human-centered paradigm that perceives, models, predicts, and supports individual human-state trajectories over time, using software tools, sensors, wearables, robots, and human services as action channels rather than end goals. We unify fragmented capabilities across personal assistants, health agents, AI companions, and adaptive human--AI systems into a closed loop: event-based multimodal perception reconstructs meaningful personal events; longitudinal, correctable memory provides temporal context; Personal World Models estimate future personal states and outcomes under alternative decisions and interventions; and an admissible intervention policy selects proportionate support under consent, uncertainty, safety, reversibility, and user control. Feedback from the person and environment updates the loop. Rather than requiring an exhaustive Human Digital Twin, the framework uses purpose-bounded, uncertainty-aware, user-correctable representations. We organize the design space by human-state targets, relational contexts, and agent roles, and propose scenario-centered evaluation, agency-preservation metrics, benchmark requirements, edge-native personal models, and governance directions. Combodied Agents shift Agentic AI from external task completion toward sustained human benefit.",
-          "Authors": [
-            "Qianggang Ding",
-            "Xingyao Wang",
-            "Rui Feng",
-            "Zhibin Wang",
-            "Feixiang Wang",
-            "Kelong Mao",
-            "Hao Sun",
-            "Zhiyao Luo",
-            "Jiankai Tang",
-            "Lei Li",
-            "Jiadong Guo",
-            "Minheng Ni",
-            "Weicong Lin",
-            "Chenxi Yang",
-            "Hongxiang Gao",
-            "Zhenghua Chen",
-            "Yang Bai",
-            "Min Wu",
-            "Jun Cheng",
-            "Huazhu Fu",
-            "Dacheng Tao",
-            "Bang Liu"
-          ],
-          "Link": "http://arxiv.org/abs/2608.10915v1",
-          "Tags": [
-            "cs.AI"
-          ],
-          "Comment": "38 pages, 6 figures, 10 tables",
-          "Date": "2026-08-11T13:35:58Z",
           "Directions": [
             "WM"
           ]
@@ -2302,32 +2419,6 @@
           ],
           "Comment": "ICML2026 Camera Ready",
           "Date": "2026-08-11T05:38:52Z",
-          "Directions": [
-            "WM"
-          ]
-        },
-        {
-          "Title": "PBD-AG: Persistent Baseline-Delta Active Graphs with Uncertainty-Aware Inspection for Long-Horizon Service Robots",
-          "Abstract": "Long-horizon service robots require persistent world models that can be built autonomously in unseen environments and revised as task-relevant objects change. Existing methods rely on online mapping, which accumulates localization and observation errors, static scene representations that cannot capture persistent object changes, or holistic vision-language predictions that lack verifiable 3D geometric evidence. We present PBD-AG, a persistent baseline-delta active graph framework that decouples robot-verified stable fixtures from revisable dynamic object events. Under our framework, the robot autonomously bootstraps the structural baseline from onboard exploration and inspects discovered fixtures to ground hierarchical object beliefs. PBD-AG maintains reliability-weighted object states over geometry, semantics, identity, existence, and support relations, utilizing a geometric visibility gate to mitigate false deletions under occlusion. Inspection viewpoints are selected by a graph-conditioned policy that balances target coverage, travel cost, collision risk, and redundant observation. Simulation experiments in multiple environments and under controlled dynamic evaluation show higher aggregate coarse-fixture F1 than capability-matched controls, as well as stronger identity continuity and event recall. A qualitative physical-robot demonstration further illustrates integration with onboard sensing, providing a traceable world model for long-horizon robotic perception.The project page of PBD-AG is available at https://shuobao214.github.io/PBD-AG/",
-          "Authors": [
-            "Shuo Bao",
-            "Wei Dong",
-            "Shuyue Zhang",
-            "Ming Shang",
-            "Yuchen Huang",
-            "Han Yu",
-            "Chengjie Xu",
-            "Yiheng Bi",
-            "Kai Sun",
-            "Fuchun Sun",
-            "Xinzhou Wang"
-          ],
-          "Link": "http://arxiv.org/abs/2608.10449v1",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-08-11T04:03:54Z",
           "Directions": [
             "WM"
           ]
@@ -2852,162 +2943,6 @@
           ],
           "Comment": "",
           "Date": "2026-08-08T23:23:54Z",
-          "Directions": [
-            "WM"
-          ]
-        },
-        {
-          "Title": "SurgWMBench: A Vision-Based Benchmark for World-Modeling Surgical Instrument Motion Planning",
-          "Abstract": "Reliable surgical planning requires models that move beyond recognizing the current surgical step or imitating expert demonstrations, and instead anticipate how instrument motion reshapes subsequent operative states. Most surgical video understanding methods focus on recognizing phases, actions, or workflow states, while providing limited support for explicitly modeling instrument motion. Conversely, existing tool motion prediction methods can forecast instrument trajectories, but they generally do not capture the coupled evolution of future surgical video states. World models offer a natural framework for jointly modeling visual state transitions and instrument motion dynamics. However, existing surgical world model studies remain largely centered on visual generation quality, relying on generation-oriented metrics such as FVD and CD-FVD. These metrics are poorly aligned with instrument motion planning, as they do not directly measure whether predicted trajectories are geometrically accurate, temporally coherent, or actionable for downstream planning. This limitation is partly structural, since the field lacks public datasets and standardized evaluation protocols that provide the benchmarking infrastructure needed to assess motion-centric capabilities in surgical world models. In this paper, we introduce SurgWMBench, a vision-based benchmark for short-horizon surgical motion planning and dynamics prediction. Given intraoperative image sequences and historical instrument trajectory, SurgWMBench evaluates both near-future instrument motion prediction and stability under continuous rollout or input perturbations.",
-          "Authors": [
-            "Huanrong Liu",
-            "Weiliang Huang",
-            "Bob Zhang",
-            "Weichao Cai",
-            "Chunlin Tian",
-            "Qingbiao Li"
-          ],
-          "Link": "http://arxiv.org/abs/2608.08070v1",
-          "Tags": [
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-08-08T11:30:50Z",
-          "Directions": [
-            "WM"
-          ]
-        },
-        {
-          "Title": "Why Does the Future Branch? Identifiable Closure Tests for Stochastic Physical World Models",
-          "Abstract": "A calibrated stochastic world model can reveal how uncertain a future is without revealing why it branches. The same conditional future law can arise because an observation aliases physical states or because dynamics remain random after the declared full state is fixed. We prove that ordinary transitions cannot identify these two sources, even for a perfect probabilistic predictor. ClosurePairs makes them identifiable by crossing compatible microstates with repeated exogenous disturbances and estimating state, noise, and state-noise interaction variance. The central consequence is operational: under finite hierarchical sampling, forecast difficulty governs the useful compute scale, while the alias/process composition provides complementary information about its direction-resolving the current state or sampling future randomness. ClosurePairs recovers source attribution at unchanged likelihood, reduces equal-budget decomposition error in a nonlinear interaction benchmark, and supports observation-only routing. On exact-marginal MetaWorld twins, an output-only allocator is at chance while a Closure-supervised probe on frozen JEPA-WM features routes 89.8-100%. In an independent ManiSkill PushCube confirmation, a stochastic RSSM's outputs and latents remain at chance, whereas an RGB-only Closure probe routes 100% under both ID and geometry/camera OOD over five seeds, matching direct allocation rather than exceeding it. Across five unseen allocation menus, the same Closure probe routes 92.5%/90.4% ID/OOD with no new oracle labels, versus 37.9%/32.9% for a frozen direct allocator. ClosurePairs is therefore an identifiable, reusable mechanism target that cannot be recovered from forecast quality alone.",
-          "Authors": [
-            "Yibin Dong"
-          ],
-          "Link": "http://arxiv.org/abs/2608.00591v2",
-          "Tags": [
-            "cs.AI"
-          ],
-          "Comment": "",
-          "Date": "2026-08-08T09:51:31Z",
-          "Directions": [
-            "WM"
-          ]
-        },
-        {
-          "Title": "PhyEdit: Towards Real-World Object Manipulation via Physically-Grounded Image Editing",
-          "Abstract": "Achieving physically accurate object manipulation in image editing is essential for its potential applications in interactive world models. However, existing visual generative models often fail at precise spatial manipulation, resulting in incorrect scaling and positioning of objects. This limitation primarily stems from the lack of explicit mechanisms to incorporate 3D geometry and perspective projection. To achieve accurate manipulation, we develop PhyEdit, an image editing framework that leverages explicit geometric simulation as contextual 3D-aware visual guidance. By combining this plug-and-play 3D prior with joint 2D--3D supervision, our method effectively improves physical accuracy and manipulation consistency. To support this method and evaluate performance, we present a real-world dataset, RealManip-40K, for 3D-aware object manipulation featuring paired images and depth annotations. We also propose ManipEval, a benchmark with multi-dimensional metrics to evaluate 3D spatial control and geometric consistency. Extensive experiments show that our approach outperforms existing methods, including strong closed-source models, in both 3D geometric accuracy and manipulation consistency.",
-          "Authors": [
-            "Ruihang Xu",
-            "Dewei Zhou",
-            "Xiaolong Shen",
-            "Fan Ma",
-            "Yi Yang"
-          ],
-          "Link": "http://arxiv.org/abs/2604.07230v3",
-          "Tags": [
-            "cs.CV"
-          ],
-          "Comment": "Code: https://github.com/nenhang/PhyEdit",
-          "Date": "2026-08-08T08:49:06Z",
-          "Directions": [
-            "WM"
-          ]
-        },
-        {
-          "Title": "Distilling Physical Priors into Streaming World Models",
-          "Abstract": "Streaming world models predict future visual states online while maintaining physically coherent dynamics over long horizons. However, their rollouts often violate basic physical constraints. A common approach distills pretrained bidirectional DiTs into few-step causal generators. However, this paradigm suffers from two fundamental limitations: generic bidirectional teachers acquire limited physical priors from visually oriented pretraining, and the limited priors suffer further loss during bidirectional-to-causal distillation. We present PhyS, a three-stage framework for distilling physical priors into streaming world models. To acquire physical priors from real-world interactions, we construct PhyS-120K, a dataset of 120K real-world physical-interaction videos spanning rigid-body dynamics, soft-body deformation, fluid phenomena, and phase transitions. Each video is annotated with structured descriptions of object properties and causal state transitions. Physics-aware supervised fine-tuning injects the physical priors into a bidirectional 14B DiT teacher, which we then distill into a lightweight 1.3B causal DiT for few-step autoregressive streaming generation. Finally, we use online reinforcement learning to incentivize the distilled model to generate physically plausible rollouts and further propose Temporal Credit Routing (TCR) to address temporal credit assignment. TCR evaluates physical consistency over overlapping temporal windows and routes the resulting group-relative advantages to temporally aligned denoising actions. On PhysicsIQ, PhyS improves the Wan2.1-14B teacher by 18.2\\% and the Self Forcing, Rolling Forcing, and Causal Forcing by 23.7\\%, 14.8\\%, and 31.4\\%, respectively. Results also improve the physics-aware video benchmarks VideoPhy, VideoPhy2, and PhyGenBench. The dataset, code, and more sample videos are available on our Project Page.",
-          "Authors": [
-            "Liangliang Zhao",
-            "Junying Wang",
-            "Danni Yang",
-            "Yifan Chang",
-            "Bin Fu",
-            "Yu Qiao",
-            "Bowen Zhou",
-            "Yihao Liu"
-          ],
-          "Link": "http://arxiv.org/abs/2608.07981v1",
-          "Tags": [
-            "cs.CV"
-          ],
-          "Comment": "9 pages, 7 figures. Project page: https://lyongo.github.io/PhyS/",
-          "Date": "2026-08-08T07:35:10Z",
-          "Directions": [
-            "WM"
-          ]
-        },
-        {
-          "Title": "CausalNav: Reliability-Certified Causal World Models for Control under Physical-Parameter Shift",
-          "Abstract": "A world model is only useful for physical AI if it changes what the agent does, and only safe if it declines to do so when it is wrong. We study both halves of that requirement with CausalNav, a controller built around a signed, action-conditioned transition graph over identified state coordinates. At deployment CausalNav simulates a small library of intervention sequences, converts their objective error into policy-logit advice, and admits that advice only when a scale-free predictive-reliability certificate, a policy-margin gate, and an argmax-agreement gate all pass; otherwise it falls back exactly to its own model-based base controller. We evaluate against nine controlled baselines (transformer, recurrent, split-latent, graph, causal-induction, and three recent model-based reasoning modules) on CartPole-v1 and discretized Pendulum-v1 with physical-parameter shifts, under one shared PPO trainer, one interaction budget, and ten held-out seeds (200 runs). CausalNav attains the best average rank (1.25 of ten). The diagnostic result is more informative than the ranking: the learned graph recovers structure well above chance (CartPole F1 = 0.59 +/- 0.09), yet per-seed structural fidelity is uncorrelated with per-seed control benefit (r = -0.15, p = 0.67), and the certificate abstains on 10/10 Pendulum seeds, where forcing the planner on costs return. Model fidelity did not predict downstream control utility in our setting; certified abstention, not better prediction, is what made the world model safe to deploy.",
-          "Authors": [
-            "Yiyao Zhang",
-            "Diksha Goel",
-            "Hussain Ahmad",
-            "Shixun Huang",
-            "Jun Shen"
-          ],
-          "Link": "http://arxiv.org/abs/2608.07809v1",
-          "Tags": [
-            "cs.AI"
-          ],
-          "Comment": "",
-          "Date": "2026-08-07T23:16:57Z",
-          "Directions": [
-            "WM"
-          ]
-        },
-        {
-          "Title": "LUCID: Latent-Skill Unified Control via Imagined Dynamics for Long-Horizon Humanoid Loco-Manipulation",
-          "Abstract": "Long-horizon humanoid loco-manipulation requires composing versatile whole-body skills and reliable high-level decision making. Existing methods often coordinate pretrained skills with scripted planners, finite-state machines or task-specific model-free policies, restricting their ability to handle complex task sequences. To address this limitation, we propose \\textbf{LUCID}, a hierarchical model-based reinforcement learning framework that plans over reusable skills through imagined rollouts of a learned dynamics model. LUCID first trains a structured latent-conditioned low-level policy via adversarial imitation and then freezes it while jointly learning a high-level policy and macro-dynamics world model. The world model predicts the temporally extended state transitions induced by latent decisions, enabling high-level policy optimization through imagined rollouts. We evaluate our framework across various simulated multi-object rearrangement scenarios. Experimental results show that LUCID improves the full-task success and partial-completion rates compared to prior baseline methods, demonstrating its effectiveness in complex sequential loco-manipulation tasks.",
-          "Authors": [
-            "Cheng Guo",
-            "Mingzhe Ni",
-            "Angelo Cangelosi",
-            "Arash Ajoudani"
-          ],
-          "Link": "http://arxiv.org/abs/2608.07746v1",
-          "Tags": [
-            "cs.LG",
-            "cs.RO"
-          ],
-          "Comment": "",
-          "Date": "2026-08-07T20:26:34Z",
-          "Directions": [
-            "WM"
-          ]
-        },
-        {
-          "Title": "SpikeWorld: Fast-State Adaptation for Frozen Spiking World Models",
-          "Abstract": "A predictive model receives a self-supervised signal whenever the consequence of an action is observed. Using that signal after deployment is difficult when dynamics and semantics share parameters: freezing prevents adaptation, whereas weight updates require optimizer state and may alter the learned representation. Here we introduce SpikeWorld, a 1.45M-parameter sparse spiking model jointly trained for heterogeneous sensory prediction, semantics, image-text binding and action-conditioned dynamics. At deployment, all trained parameters are frozen. Delayed next-state residuals update two external paths: cumulative fixed-bank losses select the bounded action correction, while route-specific residual matrices refine next-state prediction. Neither path uses labels, teacher outputs, rewards, success signals or the true shift value. Joint optimization improves action next-state MSE by 17.10\\% while also improving multimodal prediction, semantic accuracy and image-text retrieval. On held-out shear and attenuation streams, the combined external state improves aggregate prediction by 5.48\\% and 30.01\\%; its fixed-bank action path improves tracking by 24.20\\% and 3.94\\%, respectively. In a six-arm study comprising 450 new Meta-World trajectories (75 per arm), SpikeWorld raises frozen-policy reward by 7.90 (95\\% CI [2.48, 14.06]); the 13.33-point success difference is descriptive (CI [0, 40]). For identical sensory inputs, model parameters and inherited semantic outputs remain bitwise unchanged. A 16-byte RLS estimator obtains the highest non-oracle reward on linear attenuation, showing that the contribution is not superior linear identification, but its integration with a frozen multimodal spiking checkpoint. Reference code is publicly available at https://github.com/Oooorca/SpikeWorld.",
-          "Authors": [
-            "Ziqiao Yu"
-          ],
-          "Link": "http://arxiv.org/abs/2608.07712v1",
-          "Tags": [
-            "cs.CV",
-            "cs.AI"
-          ],
-          "Comment": "14 pages, 2 figures, 4 tables. Code: https://github.com/Oooorca/SpikeWorld",
-          "Date": "2026-08-07T18:57:06Z",
-          "Directions": [
-            "WM"
-          ]
-        },
-        {
-          "Title": "CosmosAlign: Adapting a World Foundation Model for Generative Traffic Video Forecasting",
-          "Abstract": "Generative traffic video forecasting aims to synthesize long-horizon, temporally coherent future videos of traffic scenes from a short observation history and textual descriptions. In this paper, we present CosmosAlign, a generative traffic video forecasting framework built upon the pretrained Cosmos3-Nano world foundation model. Our approach is motivated by the observation that successfully adapting large pretrained world models to downstream forecasting tasks depends primarily on distribution alignment rather than increased model capacity. To this end, we propose a two-stage LoRA adaptation strategy that first aligns the conditioning-mode distribution with the target forecasting task, and then aligns the training captions with the model's native structured prompting interface through an LLM-based re-captioning pipeline. During inference, we further improve prediction quality using a fully training-free procedure consisting of consensus-based medoid sample selection and motion-adaptive blending of static scene regions. CosmosAlign achieves a final score of 76.49 on the AI City Challenge 2026 Track 5 benchmark, ranking first on the final leaderboard. Our code is publicly available at https://quangminhdinh.github.io/CosmosAlign/.",
-          "Authors": [
-            "Quang Minh Dinh",
-            "Tuan Kiet Doan"
-          ],
-          "Link": "http://arxiv.org/abs/2608.07693v1",
-          "Tags": [
-            "cs.CV",
-            "cs.AI",
-            "cs.CL"
-          ],
-          "Comment": "Accepted at ECCVW 2026",
-          "Date": "2026-08-07T18:34:29Z",
           "Directions": [
             "WM"
           ]
