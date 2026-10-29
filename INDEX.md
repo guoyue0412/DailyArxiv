@@ -2,7 +2,7 @@
 
 Auto-generated cross-reference of frequent terms extracted from the titles and abstracts of the indexed papers. Click a paper title to open it on arXiv.
 
-Last update: 2026-10-28
+Last update: 2026-10-29
 
 | **Term** | **# Papers** | **Papers** |
 | --- | --- | --- |
