@@ -1,5 +1,5 @@
 ---
-title: Latest 15 Papers - November 25, 2026
+title: Latest 15 Papers - November 26, 2026
 labels: documentation
 ---
 **Please check the [Github](https://github.com/guoyue0412/DailyArxiv) page for a better reading experience and more papers.**
@@ -7,57 +7,57 @@ labels: documentation
 ## Vision-Language-Action (VLA)
 | **Title** | **Date** | **Directions** | **Comment** |
 | --- | --- | --- | --- |
-| **[Physicl Scenes: An Artist-created 3D Dataset for Learning Perception and Action](http://arxiv.org/abs/2611.33137v1)** | 2026-11-24 | VLA | <details><summary>Proje...</summary><p>Project: https://liu115.github.io/physicl video: https://youtu.be/UgyQFQSU-oc</p></details> |
-| **[Embodied AI Fails the Mirror Test: How a Simple Mirror Breaks Robot Policies](http://arxiv.org/abs/2611.33010v1)** | 2026-11-24 | VLA, WAM | <details><summary>Code:...</summary><p>Code: https://github.com/iPPLab/robodojo-mirror</p></details> |
-| **[What Does a Skill Vocabulary Cost? A Closed-Loop Decomposition over Demonstrated Motions](http://arxiv.org/abs/2611.32858v1)** | 2026-11-24 | VLA | <details><summary>27 pa...</summary><p>27 pages, 7 figures, 18 tables. Project page: https://intuitive-robots.github.io/mpq</p></details> |
-| **[Knocked Off Course: Tracing Uncommanded Motion from Perception to Action in Embodied VLAs](http://arxiv.org/abs/2611.32705v1)** | 2026-11-24 | VLA |  |
-| **[GeoMem-VLA: Internalizing 3D Scene Understanding into Temporal Memory for Vision-Language-Action Models](http://arxiv.org/abs/2610.29866v2)** | 2026-11-24 | VLA |  |
-| **[DiffGR00T: Execution-Aware Differentiable Training for Humanoid Whole-Body Vision-Language-Action Models](http://arxiv.org/abs/2611.32665v1)** | 2026-11-24 | VLA, WM | <details><summary>14 pa...</summary><p>14 pages, 6 figures, 8 tables. Conference preprint. Corresponding author: Hesheng Wang</p></details> |
-| **[DexWAC: A Unified World-Actor-Critic Model for Dexterous Robot Manipulation](http://arxiv.org/abs/2611.32654v1)** | 2026-11-24 | VLA, WAM, WM |  |
-| **[ReFocus: Progress-Guided Adaptive Practice for Long-Horizon Robotic Manipulation Reinforcement Learning](http://arxiv.org/abs/2611.32639v1)** | 2026-11-24 | VLA | 27 pages, 15 figures |
-| **[ComVLA: Communication-Aware Split Inference for VLA Models in 6G-Connected Robotics](http://arxiv.org/abs/2609.07838v2)** | 2026-11-24 | VLA | <details><summary>6 pag...</summary><p>6 pages, accepted to IEEE GLOBECOM 2026</p></details> |
-| **[MXI-MemICL: Towards In-Context Robot Manipulation through Self-Retrieved Interaction Memory](http://arxiv.org/abs/2611.32564v1)** | 2026-11-24 | VLA | <details><summary>17 pa...</summary><p>17 pages, 8 figures, including supplementary material</p></details> |
-| **[GeoVLDrive: Geometry-Grounded Vision-Language Reasoning for Autonomous Driving](http://arxiv.org/abs/2611.32510v1)** | 2026-11-24 | VLA |  |
-| **[Any2Act: Scaling In-Context Robot Learning from Heterogeneous Demonstrations](http://arxiv.org/abs/2611.32353v1)** | 2026-11-24 | VLA | <details><summary>Proje...</summary><p>Project page: https://any2act.github.io/</p></details> |
-| **[Sparse Poison, Strong Hijack: Efficient Trajectory-Level Backdoors in Vision-Language-Action Models with Only 1\\% Poisoning](http://arxiv.org/abs/2611.32304v1)** | 2026-11-24 | VLA | <details><summary>15 pa...</summary><p>15 pages, 7 figures, including supplementary material. Simin Huang and Jiawei Chen contributed equally. Code: https://github.com/vla-attack/Sparse_Poison_Strong_Hijack</p></details> |
-| **[ConsisX: Cross-View Consistency Thinking in 3D for Vision-Language-Action Models](http://arxiv.org/abs/2611.30308v2)** | 2026-11-24 | VLA |  |
-| **[EgoLoAF: Learning Humanoid Loco-Manipulation from Egocentric Demonstrations with Hand-Object Affordances](http://arxiv.org/abs/2611.32260v1)** | 2026-11-24 | VLA |  |
+| **[Cairn: Object-Centric 3D Trajectory Priors for Steering Frozen VLAs](http://arxiv.org/abs/2611.34914v1)** | 2026-11-25 | VLA |  |
+| **[RePace: Reasoning about Demonstration Speedup for Faster Vision-Language-Action Policies](http://arxiv.org/abs/2611.34864v1)** | 2026-11-25 | VLA |  |
+| **[Toward Agentic Robotics: A Large-Scale Study of Harness Design for Robot-Use Agents](http://arxiv.org/abs/2611.34778v1)** | 2026-11-25 | VLA, WAM |  |
+| **[ELMO: Emergent Representations In Imitation Learning Via Dynamic Hierarchical Action Chunking](http://arxiv.org/abs/2611.34741v1)** | 2026-11-25 | VLA |  |
+| **[From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation](http://arxiv.org/abs/2610.29560v2)** | 2026-11-25 | VLA |  |
+| **[A Failure-Driven Data Flywheel for Post-Training Vision-Language-Action Models](http://arxiv.org/abs/2611.34698v1)** | 2026-11-25 | VLA |  |
+| **[RoboEvo$^2$: Recursive Robot Self-Improvement via Harness-Policy Co-Evolution](http://arxiv.org/abs/2611.34675v1)** | 2026-11-25 | VLA | <details><summary>Proje...</summary><p>Project page: https://kaiknower.github.io/RoboEvo2/</p></details> |
+| **[DiffGR00T: Execution-Aware Differentiable Training for Humanoid Whole-Body Vision-Language-Action Models](http://arxiv.org/abs/2611.32665v2)** | 2026-11-25 | VLA, WM | <details><summary>14 pa...</summary><p>14 pages, 6 figures, 8 tables. Conference preprint. Corresponding author: Hesheng Wang</p></details> |
+| **[EqC: Equilibrium Energy Control for Introspective Lifelong Robot Learning](http://arxiv.org/abs/2610.18790v2)** | 2026-11-25 | VLA |  |
+| **[Commit2Drive: Perception-Grounded Language Decisions as Commitments for Trajectory Planning in Vision-Language-Action Driving Models](http://arxiv.org/abs/2611.34614v1)** | 2026-11-25 | VLA | <details><summary>28 pa...</summary><p>28 pages, 9 figures, 19 tables. Includes supplementary material. Code will be released soon</p></details> |
+| **[M$^{2}$AdaptVLA: Multimodal Memory-Augmented Vision-Language-Action Model with Predictive Test-Time Adaptation](http://arxiv.org/abs/2611.34560v1)** | 2026-11-25 | VLA | <details><summary>16 pa...</summary><p>16 pages, 11 figures, 8 tables, including supplementary material</p></details> |
+| **[Dynamic Task Update Benchmark (DTU-Bench): Evaluating Runtime Task Adaptation in Robotic Manipulation](http://arxiv.org/abs/2611.34538v1)** | 2026-11-25 | VLA |  |
+| **[PriorVLA: Prior-Preserving Adaptation for Vision-Language-Action Models](http://arxiv.org/abs/2605.10925v2)** | 2026-11-25 | VLA | <details><summary>35 pa...</summary><p>35 pages. Accepted at NeurIPS 2026. Project page: https://priorvla.github.io/</p></details> |
+| **[GeoMem-VLA: Internalizing 3D Scene Understanding into Temporal Memory for Vision-Language-Action Models](http://arxiv.org/abs/2610.29866v3)** | 2026-11-25 | VLA |  |
+| **[HoloBrain-0.5 Technical Report](http://arxiv.org/abs/2611.34449v1)** | 2026-11-25 | VLA | <details><summary>Techn...</summary><p>Technical report. 23 pages, 13 figures, 9 tables. Project page: https://horizonrobotics.github.io/robot_lab/holobrain_0_5/</p></details> |
 
 ## World Action Model (WAM)
 | **Title** | **Date** | **Directions** | **Comment** |
 | --- | --- | --- | --- |
-| **[iWAM: Efficient Action Prediction from World Models without Explicit Future Prediction](http://arxiv.org/abs/2611.33141v1)** | 2026-11-24 | WAM, WM |  |
-| **[AG-WAM: Attention-Guided World Action Model for Accurate and Efficient Robot Manipulation](http://arxiv.org/abs/2611.32722v1)** | 2026-11-24 | WAM | <details><summary>16 pa...</summary><p>16 pages, 6 figures, 13 tables</p></details> |
-| **[CodeWAM: A Code World Action Model for End-to-End Autonomous Driving](http://arxiv.org/abs/2611.32483v1)** | 2026-11-24 | WAM, WM |  |
-| **[Motion Chain of Thought: Disentangling Motion Semantics from Visual Appearance for Robotic Manipulation](http://arxiv.org/abs/2611.32241v1)** | 2026-11-24 | WAM |  |
-| **[ActiveBridge: Scaling Active Prior for Robots through Egocentric Perception-Interaction Modeling](http://arxiv.org/abs/2611.32098v1)** | 2026-11-24 | WAM |  |
-| **[ThinkWAM: Rethinking Latent Futures for Action Refinement](http://arxiv.org/abs/2611.21258v5)** | 2026-11-24 | WAM | <details><summary>21 pa...</summary><p>21 pages, 12 figures, 15 tables, including references and appendix. Project page: https://thinkwam-project.github.io/</p></details> |
-| **[EffectWAM: Learning Action-Grounded Effects for Robot Manipulation](http://arxiv.org/abs/2611.32053v1)** | 2026-11-24 | WAM |  |
-| **[LoopedWAM: Looped World Action Models for Elastic Inference](http://arxiv.org/abs/2611.25595v3)** | 2026-11-24 | WAM |  |
-| **[PreWAM: Exploring the Design of Latent Future Prediction for World-Action Modeling](http://arxiv.org/abs/2611.31901v1)** | 2026-11-24 | WAM |  |
-| **[G0.7: Scaling Up a Fast World Action Model with Long Context](http://arxiv.org/abs/2611.31822v1)** | 2026-11-24 | WAM |  |
-| **[FoveaWAM: Role-Aware 4D World-Action Modeling for Dynamic Manipulation](http://arxiv.org/abs/2611.31705v1)** | 2026-11-23 | WAM | <details><summary>19 pa...</summary><p>19 pages, 9 figures. Supplementary material included</p></details> |
-| **[VITA-WAM: Manifold-Aligned World-Action Modeling for Real-Time Robot Control](http://arxiv.org/abs/2611.31195v1)** | 2026-11-23 | WAM | <details><summary>Proje...</summary><p>Project page. http://ucd-dare.github.io/VITA-WAM. Equal Contributors: Boqi Zhao, Dechen Gao. Corresponding Author: Junshan Zhang</p></details> |
-| **[EmboEagle: An Efficient Agentic Embodied Framework for Long-horizon Robotic Manipulation](http://arxiv.org/abs/2611.31173v1)** | 2026-11-23 | WAM |  |
-| **[Foresight Forcing: Learning Spatial Foresight for Robotic Manipulation](http://arxiv.org/abs/2611.30963v1)** | 2026-11-23 | WAM | <details><summary>Proje...</summary><p>Project website: https://anson2333.github.io/foresight-forcing</p></details> |
-| **[JEPA-ICL: Progress-Aligned Latent Plans for In-Context Robotic Manipulation](http://arxiv.org/abs/2611.30516v1)** | 2026-11-23 | WAM | <details><summary>13 pa...</summary><p>13 pages, 5 figures, 6 tables</p></details> |
+| **[HOG-WAM: Improving Visual Robustness through Future Gradient Prediction](http://arxiv.org/abs/2611.34811v1)** | 2026-11-25 | WAM | <details><summary>Code:...</summary><p>Code: https://github.com/iPPLab/HOG-WAM</p></details> |
+| **[Nav4Manip: From Navigation to Dexterous Mobile Manipulation through Co-Evolution](http://arxiv.org/abs/2611.34655v1)** | 2026-11-25 | WAM |  |
+| **[Self-Distilling Future Video Representations for World Action Models](http://arxiv.org/abs/2610.30320v3)** | 2026-11-25 | WAM | <details><summary>28 pa...</summary><p>28 pages; Project page: https://huiwon-jang.github.io/FRED/</p></details> |
+| **[Entangle: Scaling Human-Video In-Context World-Action Models across Unseen Tasks and Contexts](http://arxiv.org/abs/2611.28732v2)** | 2026-11-25 | WAM | <details><summary>26 pa...</summary><p>26 pages, 13 figures, including the appendix. Project page at https://entangle-robotics.github.io/</p></details> |
+| **[Quantization for Action, Execution for Deployment: Joint Precision and Execution Selection for World Action Models](http://arxiv.org/abs/2611.30195v2)** | 2026-11-25 | WAM |  |
+| **[EffectWAM: Learning Action-Grounded Effects for Robot Manipulation](http://arxiv.org/abs/2611.32053v2)** | 2026-11-25 | WAM |  |
+| **[WAtcher: Watching Ahead for Safe Robotic Manipulation with Efficient World-Action Models](http://arxiv.org/abs/2611.34124v1)** | 2026-11-25 | WAM | <details><summary>12 pa...</summary><p>12 pages, 4 figures, 6 tables. Project page: https://zyshan0929.github.io/WAtcher</p></details> |
+| **[CoTacWAM: Joint Modeling of Vision and Touch for Robotic Manipulation](http://arxiv.org/abs/2611.34117v1)** | 2026-11-25 | WAM | <details><summary>19 pa...</summary><p>19 pages, including appendix</p></details> |
+| **[G0.7: Scaling Up a Fast World Action Model with Long Context](http://arxiv.org/abs/2611.31822v2)** | 2026-11-25 | WAM |  |
+| **[Sparse-WAM: Accelerating World Action Models via Action-Guided Sparse Imagination](http://arxiv.org/abs/2609.38984v2)** | 2026-11-25 | WAM | <details><summary>Xinli...</summary><p>Xinling Xie and Haodong Wang contributed equally to this work</p></details> |
+| **[Targeted Adaptation of World-Action Models via Interaction and Motion Heads](http://arxiv.org/abs/2611.33963v1)** | 2026-11-25 | WAM | <details><summary>Proje...</summary><p>Project page: https://headlight-wam.github.io/</p></details> |
+| **[Event-WAM: Learning to Act with Event-Derived Futures](http://arxiv.org/abs/2611.33917v1)** | 2026-11-25 | WAM |  |
+| **[Dynamic Forcing: Learning Action-Grounded Sparse Dynamic Representations with Dense Future Guidance for World Action Models](http://arxiv.org/abs/2611.33799v1)** | 2026-11-25 | WAM |  |
+| **[DriftWAM: Faster World-Action Models via Action-Aware Video Drifting](http://arxiv.org/abs/2611.33797v1)** | 2026-11-25 | WAM | 16 pages, 5 figures |
+| **[$\\mathrm{M}^{2}$-WAM: Efficient Hierarchical Memory Across Modalities and Timescales for World-Action Models](http://arxiv.org/abs/2611.33710v1)** | 2026-11-25 | WAM |  |
 
 ## World Model (WM)
 | **Title** | **Date** | **Directions** | **Comment** |
 | --- | --- | --- | --- |
-| **[Hybrid AI for AI-Native RAN Control: A Functional Perspective](http://arxiv.org/abs/2611.33035v1)** | 2026-11-24 | WM |  |
-| **[DynaMimic: A Physics-Informed World Model for Humanoid Motion Tracking](http://arxiv.org/abs/2611.32944v1)** | 2026-11-24 | WM |  |
-| **[Do Latent World Models Really Select the Right Actions?](http://arxiv.org/abs/2609.05461v2)** | 2026-11-24 | WM | 24 pages, 9 figures |
-| **[Motion Conditioned World Modeling for Embodied Visual Tracking](http://arxiv.org/abs/2611.32900v1)** | 2026-11-24 | WM |  |
-| **[EEG-World: Context-Conditioned Dynamics of the Watching Brain](http://arxiv.org/abs/2611.32825v1)** | 2026-11-24 | WM | <details><summary>20 pa...</summary><p>20 pages, 8 figures, 3 tables; appendix with 3 figures and 6 tables. Ancillary file lists the clip split</p></details> |
-| **[Interactive Neural Computers](http://arxiv.org/abs/2611.32811v1)** | 2026-11-24 | WM |  |
-| **[Simulator-as-Proxy World Model for Robot Manipulation](http://arxiv.org/abs/2611.32786v1)** | 2026-11-24 | WM | <details><summary>27 pa...</summary><p>27 pages. Project page: https://sim-pwm.pages.dev Code: https://github.com/TingtingLiao/SimPWM</p></details> |
-| **[Learning World Models through Contrastive Identification of Actions](http://arxiv.org/abs/2611.32776v1)** | 2026-11-24 | WM |  |
-| **[MemAnchorWorld: A Sparse World Model with Horizon-Conditioned Memory Retrieval for Autonomous Driving](http://arxiv.org/abs/2611.32745v1)** | 2026-11-24 | WM | <details><summary>11 pa...</summary><p>11 pages, 4 figures, 4 tables</p></details> |
-| **[Economic World Model](http://arxiv.org/abs/2611.32663v1)** | 2026-11-24 | WM | 36 pages, 15 figures |
-| **[Bradley-Terry Training Can Distort Outcome Probabilities of Initially Accurate Language World Models](http://arxiv.org/abs/2611.25594v2)** | 2026-11-24 | WM | <details><summary>10 pa...</summary><p>10 pages, 6 figures, 1 table</p></details> |
-| **[OmniPersist: Persistent Dynamic World Modeling via Coupled Panoramic Evolution](http://arxiv.org/abs/2611.32473v1)** | 2026-11-24 | WM | <details><summary>Proje...</summary><p>Project: https://omnipersist.github.io Code: https://github.com/cszhilu1998/OmniPersist</p></details> |
-| **[A Mesh to Remember: Persistent Appearance for Interactive Video Worlds](http://arxiv.org/abs/2611.32445v1)** | 2026-11-24 | WM | <details><summary>Proje...</summary><p>Project page: https://research.nvidia.com/labs/sil/projects/m2r/</p></details> |
-| **[CriticJEPA: World Models Are Better Critics Than Optimizers](http://arxiv.org/abs/2611.32357v1)** | 2026-11-24 | WM |  |
-| **[Does Latent Planning Survive Point Clouds? Action-Conditioned JEPA World Models for Geometric Observations and Goals](http://arxiv.org/abs/2608.29434v3)** | 2026-11-24 | WM |  |
+| **[Failure Detection for Surgical Robot Imitation Policies via Flow-Matching World Modeling](http://arxiv.org/abs/2607.27511v2)** | 2026-11-25 | WM | <details><summary>8 pag...</summary><p>8 pages, 4 figures. Revised following peer review. Accepted for publication in IEEE Robotics and Automation Letters (RA-L)</p></details> |
+| **[Not all world models can doubt: how training objective and architecture shape epistemic uncertainty in JEPA and RSSM world models](http://arxiv.org/abs/2611.34830v1)** | 2026-11-25 | WM |  |
+| **[Was the Model Given the Right Action? Auditing and Repairing Action Interfaces in Navigation World Models](http://arxiv.org/abs/2611.34739v1)** | 2026-11-25 | WM | <details><summary>26 pa...</summary><p>26 pages, 8 figures, 10 tables</p></details> |
+| **[WorldInteract: Controllable Streaming Video Generation for Multi-Material Interactions](http://arxiv.org/abs/2611.34730v1)** | 2026-11-25 | WM |  |
+| **[ShowNow: Fine-Grained Speculative Streaming for Responsive World Models](http://arxiv.org/abs/2611.34693v1)** | 2026-11-25 | WM | <details><summary>23 pa...</summary><p>23 pages, including appendix. Video examples provided as ancillary files</p></details> |
+| **[Do We Still Need Reinforcement Learning When We Can Read the World Model?](http://arxiv.org/abs/2611.34656v1)** | 2026-11-25 | WM | <details><summary>44 pa...</summary><p>44 pages, 10 figures, 24 tables</p></details> |
+| **[Motion Beyond Pixels: Learning Future Visual Representations for Object-Centric Dynamics](http://arxiv.org/abs/2611.34644v1)** | 2026-11-25 | WM | <details><summary>Proje...</summary><p>Project page: https://xyz1206.github.io/MotionRep/</p></details> |
+| **[$μ$MPC: Microsecond-Scale Nonlinear and World Model Control from Edge to GPU via Koopman-Linearized Precompilation](http://arxiv.org/abs/2611.34597v1)** | 2026-11-25 | WM | <details><summary>9 pag...</summary><p>9 pages, 4 figures. Project Website: https://www.deveshnath.com/projects/micrompc/</p></details> |
+| **[PrimeSim: A Generalist World Model Simulator from Large-Scale Cross-Embodiment Demonstrations](http://arxiv.org/abs/2611.04870v2)** | 2026-11-25 | WM |  |
+| **[Escaping Latent Traps by Remembering: Training-Free Episodic Kernel Repulsion for World-Model Planning](http://arxiv.org/abs/2611.22470v2)** | 2026-11-25 | WM | <details><summary>29 pa...</summary><p>29 pages, including references and appendix</p></details> |
+| **[Long-Horizon Planning with Latent World Models via Graph Anchors](http://arxiv.org/abs/2611.34509v1)** | 2026-11-25 | WM | <details><summary>Proje...</summary><p>Project page: https://syed-nazmus-sakib.github.io/graph-anchors/ \| Code: https://github.com/syed-nazmus-sakib/graph-anchors</p></details> |
+| **[Most of the Way There: Turning a Strong Video Prior into an Action-Conditioned World Model](http://arxiv.org/abs/2611.34435v1)** | 2026-11-25 | WM | <details><summary>Proje...</summary><p>Project Page: https://xmz111.github.io/Dianjing/</p></details> |
+| **[Co-World Model for Human-Video-to-Robot Transfer via Co-Constructed Shared Latent Dynamics](http://arxiv.org/abs/2611.34302v1)** | 2026-11-25 | WM |  |
+| **[Rehearse in 3D, Render in 2D: Physically Consistent and Editable Robot World Models](http://arxiv.org/abs/2611.34288v1)** | 2026-11-25 | WM | <details><summary>Inclu...</summary><p>Includes supplementary material</p></details> |
+| **[Loop4D: Embodied World Modeling with 4D VAEs and Looped Diffusion Transformers](http://arxiv.org/abs/2611.34199v1)** | 2026-11-25 | WM |  |
 
